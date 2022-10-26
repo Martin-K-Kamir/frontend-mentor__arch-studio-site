@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/*
+/// Formats a color value.
+/// @author - Martin Kamír
+/// @access public
+/// @param $color {color} - Color value.
+/// @param $format {string} - The format which will be used. Available formats: 'hsl', 'hsl()', 'rgb', 'rgba()', 'hex'.
+/// @return {color} - Formatted color value.
+ */
+@function color-format($color, $format) {
+	$formats : ('hsl', 'hsl()', 'rgb', 'rgb()', 'hex');
+
+	@if type-of($color) != color {
+		@debug 'Invalid type: #{$color} is not a color.';
+	}
+
+	@if not index($formats, $format) {
+		@debug 'Invalid format: "#{$format}" is not a valid format. Valid formats are: #{$formats}.';
+	}
+
+	@if $format == 'hsl' or $format == 'hsl()' {
+		$hue : round(hue($color));
+		$saturation : round(saturation($color));
+		$lightness : round(lightness($color));
+
+		@if $format == 'hsl' {
+			@return '#{$hue, $saturation, $lightness}';
+		} @else {
+			@return hsl($hue, $saturation, $lightness);
+		}
+	}
+
+	@if $format == 'rgb' or $format == 'rgb()' {
+		$red : round(red($color));
+		$green : round(green($color));
+		$blue : round(blue($color));
+
+		@if $format == 'rgb' {
+			@return '#{$red, $green, $blue}';
+		} @else {
+			@return rgb($red, $green, $blue);
+		}
+	}
+
+	@if $format == 'hex' {
+		$hex : ie-hex-str($color);
+		@return unquote('#' + str-slice($hex, 4));
+	}
+}

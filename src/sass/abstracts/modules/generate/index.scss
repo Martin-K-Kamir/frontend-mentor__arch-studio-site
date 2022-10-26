@@ -1,0 +1,174 @@
+@charset "UTF-8";
+@forward 'variables';
+@forward 'maps' hide $breakpoints, $ratios, $suffixes;
+@use 'sass:map' as *;
+@use 'mixins' as *;
+@use 'variables' as *;
+
+@mixin utilities(
+	$config: null,
+	$auto: false,
+	$src: null,
+) {
+
+	$mixin : 'utilities';
+
+	@include compile-utilities-config($config, $mixin, $auto, $src);
+}
+
+@mixin colors(
+	$config: null,
+	$src: null,
+	$tints: null,
+	$shades: null,
+	$format: $colors-format,
+	$prefix: $colors-prefix,
+	$suffix: $colors-suffix,
+	$utils: $colors-utils,
+	$utils-property-color: $colors-utils-property-color,
+	$utils-property-bg: $colors-utils-property-bg,
+	$utils-prefix-color: $colors-utils-prefix-color,
+	$utils-prefix-bg: $colors-utils-prefix-bg,
+) {
+
+	$mixin : 'colors';
+
+	@include compile-colors-config($config, $mixin, $src, $tints, $shades, $format, $prefix, $suffix, $utils, $utils-property-color, $utils-property-bg, $utils-prefix-color, $utils-prefix-bg);
+}
+
+@mixin fluid-font-types(
+	$config: null,
+	$src: null,
+	$base: null,
+	$ratio: null,
+	$length: null,
+	$clamp-width: ('min-width': $fluid-font-types-screen-min, 'max-width': $fluid-font-types-screen-max),
+	$prefix: $fluid-font-types-prefix,
+	$suffix: $fluid-font-types-suffix,
+	$utils: $fluid-font-types-utils,
+	$utils-property: $fluid-font-types-utils-property) {
+
+	$mixin    : 'fluid-font-types';
+	$preserve : 0;
+	@include compile-types-config($config, $mixin, $src, $base, $ratio, $length, $clamp-width, $preserve, $prefix, $suffix, $utils, $utils-property);
+}
+
+@mixin fluid-space-types(
+	$config: null,
+	$src: null,
+	$base: null,
+	$ratio: null,
+	$length: null,
+	$clamp-width: ('min-width': $fluid-space-types-screen-min, 'max-width': $fluid-space-types-screen-max),
+	$prefix: $fluid-space-types-prefix,
+	$suffix: $fluid-space-types-suffix,
+	$utils: $fluid-space-types-utils,
+	$utils-property: $fluid-space-types-utils-property) {
+
+	$mixin    : 'fluid-space-types';
+	$preserve : 0;
+	@include compile-types-config($config, $mixin, $src, $base, $ratio, $length, $clamp-width, $preserve, $prefix, $suffix, $utils, $utils-property);
+}
+
+@mixin font-types(
+	$config: null,
+	$src: null,
+	$base: null,
+	$ratio: null,
+	$length: null,
+	$preserve: 0,
+	$prefix: $font-types-prefix,
+	$suffix: $font-types-suffix,
+	$utils: $font-types-utils,
+	$utils-property: $font-types-utils-property) {
+
+	$mixin       : 'font-types';
+	$clamp-width : null;
+	@include compile-types-config($config, $mixin, $src, $base, $ratio, $length, $clamp-width, $preserve, $prefix, $suffix, $utils, $utils-property);
+}
+
+@mixin space-types(
+	$config: null,
+	$src: null,
+	$base: null,
+	$ratio: null,
+	$length: null,
+	$preserve: 0,
+	$prefix: $space-types-prefix,
+	$suffix: $space-types-suffix,
+	$utils: $space-types-utils,
+	$utils-property: $space-types-utils-property) {
+
+	$mixin       : 'space-types';
+	$clamp-width : null;
+	@include compile-types-config($config, $mixin, $src, $base, $ratio, $length, $clamp-width, $preserve, $prefix, $suffix, $utils, $utils-property);
+}
+
+/*
+/// Main generator mixin, which can call other mixins and output various types of css properties based on the config.
+/// @author - Martin Kamír
+/// @access public
+/// @example: $config: (
+/// font-types' / 'space-types' : (
+/// 	'src' {list, map} - Source of custom values from list or map.
+/// 	'base' {number} - Accepts a number with unit. Defines the base value of the type.
+/// 	'ratio' {number/string} - Accepts a integer or string from $ratios map. Defines the ratio of the type.
+/// 	'length' {number} - The length of the generated css properties. Number must be with no unit.
+/// 	'preserve' {number} - The number of how many css properties will be preserved. Means the values will ignore any future changes of $base and $ratio.
+/// 	'suffix' {string} - Defines the order of the css properties and utility classes. Suffix has many options from $suffixes map, or using numeric, numeric-hundreds. Also custom suffixes can be used as list.
+/// 	'prefix' {string} - The name of css property and utility classes.
+/// 	'utils' {boolean} - Enables or disables the generation of utility classes.
+/// 	'utils-property' {string} - Defines the css property of the utility classes.
+/// 	'break-at' {string} - Defines the min-width or max-width of the breakpoint by calling 'min' or 'max'.
+/// 	'breakpoints' {map}  - Defines the breakpoints and values to be changed.
+/// 	),
+/// fluid-font-types' / 'fluid-space-types' : (
+/// 	'base' {map} - Accepts a map with keys 'min' and 'max' and number values with unit. The 'min' value defines the base value of the type at the smallest viewport. The 'max' value defines the base value of the type at the largest viewport.
+/// 	'ratio' {map} - Accepts a map with keys 'min' and 'max' and integer or string values from $ratios map. The 'min' value defines the ratio of the type at the smallest viewport. The 'max' value defines the ratio of the type at the largest viewport.
+/// 	'clamp-width' {map} - Accepts a map with keys 'min-width' and 'max-width' and number values with unit. The 'min-width' value defines the smallest viewport. The 'max-width' value defines the largest viewport.
+///     THE REST IS SAME as 'font-types' / 'space-types' configuration
+/// 	),
+/// colors' : (
+/// 	'src' {map} - The source values of colors.
+/// 	'tints' {list} - Defining the values for tints of colors as percentages.
+/// 	'shades' {list} - Same as $tints but for shades.
+/// 	'format' {string} - Defines the output color format.
+/// 	'prefix' {string} - Defines the prefix for generated css variable.
+/// 	'suffix' {string} - Defines the order of the css properties and utility classes. Suffix has many options from $suffixes map, or using numeric, numeric-hundreds. Also custom suffixes can be used as list.
+/// 	'utils' {boolean} - Enables or disables the generation of utility classes.
+/// 	'utils-property-color' {string} - Defines the css property of the utility classes for color.
+/// 	'utils-property-bg' {string} - Defines the css property of the utility classes for background-color.
+/// 	'utils-prefix-color' {string} - Defines the name of utility classes for the color property.
+/// 	'utils-prefix-bg' {string} - Defines the name of utility classes for the background property.
+/// 	),$
+/// 'utilities' : (
+/// 	'auto' {boolean} - Enables if all predefined maps should be generated.
+/// 	'src' {map} - The source maps to generate.
+/// 	),
+/// The utilities generator also gives ability for source maps to be able generate utility classes with key 'utils' to true and key 'property' to be used.
+ */
+@mixin all($config) {
+	@if map-has-key($config, 'font-types') {
+		@include font-types($config);
+	}
+
+	@if map-has-key($config, 'space-types') {
+		@include space-types($config);
+	}
+
+	@if map-has-key($config, 'fluid-font-types') {
+		@include fluid-font-types($config);
+	}
+
+	@if map-has-key($config, 'fluid-space-types') {
+		@include fluid-space-types($config);
+	}
+
+	@if map-has-key($config, 'colors') {
+		@include colors($config);
+	}
+
+	@if map-has-key($config, 'utilities') {
+		@include utilities($config);
+	}
+}

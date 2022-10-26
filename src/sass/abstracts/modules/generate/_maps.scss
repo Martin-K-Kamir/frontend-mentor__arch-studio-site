@@ -1,0 +1,230 @@
+@charset "UTF-8";
+@use 'sass:math';
+
+$animations      : (
+		'animation-fade-in': fade-in 0.5s var(--ease-3),
+		'animation-fade-out': fade-out 0.5s var(--ease-3),
+		'animation-scale-up': scale-up 0.5s var(--ease-3),
+		'animation-scale-down': scale-down 0.5s var(--ease-3),
+		'animation-slide-out-up': slide-out-up 0.5s var(--ease-3),
+		'animation-slide-out-down': slide-out-down 0.5s var(--ease-3),
+		'animation-slide-out-right': slide-out-right 0.5s var(--ease-3),
+		'animation-slide-out-left': slide-out-left 0.5s var(--ease-3),
+		'animation-slide-in-up': slide-in-up 0.5s var(--ease-3),
+		'animation-slide-in-down': slide-in-down 0.5s var(--ease-3),
+		'animation-slide-in-right': slide-in-right 0.5s var(--ease-3),
+		'animation-slide-in-left': slide-in-left 0.5s var(--ease-3),
+		'animation-shake-x': shake-x 0.75s var(--ease-out-5),
+		'animation-shake-y': shake-y 0.75s var(--ease-out-5),
+		'animation-spin': spin 2s linear infinite,
+		'animation-ping': ping 5s var(--ease-out-3) infinite,
+		'animation-blink': blink 1s var(--ease-out-3) infinite,
+		'animation-float': float 3s var(--ease-in-out-3) infinite,
+		'animation-bounce': bounce 2s var(--ease-squish-2) infinite,
+		'animation-pulse': pulse 2s var(--ease-out-3) infinite,
+		'animation-reveal-top': reveal-top 1s var(--ease-3),
+		'animation-reveal-left': reveal-left 1s var(--ease-3),
+		'animation-reveal-bottom': reveal-bottom 1s var(--ease-3),
+		'animation-reveal-right': reveal-right 1s var(--ease-3),
+) !default;
+
+$aspect-ratios   : (
+		'ratio-square' : 1,
+		'ratio-landscape' : '5 / 4',
+		'ratio-portrait' : '3 / 4',
+		'ratio-widescreen' : '16 / 9',
+		'ratio-ultrawide' : '18 / 5',
+		'ratio-golden' : '1.618 / 1',
+) !default;
+
+$borders         : (
+		'border-1' : 0.1em,
+		'border-2' : 0.2em,
+		'border-3' : 0.5em,
+		'border-4' : 1em,
+) !default;
+
+$easings         : (
+		'ease-1' : cubic-bezier(0.25, 0, 0.5, 1),
+		'ease-2' : cubic-bezier(0.25, 0, 0.4, 1),
+		'ease-3' : cubic-bezier(0.25, 0, 0.3, 1),
+		'ease-4' : cubic-bezier(0.25, 0, 0.2, 1),
+		'ease-5' : cubic-bezier(0.25, 0, 0.1, 1),
+		'ease-in-1' : cubic-bezier(0.25, 0, 1, 1),
+		'ease-in-2' : cubic-bezier(0.5, 0, 1, 1),
+		'ease-in-3' : cubic-bezier(0.7, 0, 1, 1),
+		'ease-in-4' : cubic-bezier(0.9, 0, 1, 1),
+		'ease-in-5' : cubic-bezier(1, 0, 1, 1),
+		'ease-out-1' : cubic-bezier(0, 0, 0.75, 1),
+		'ease-out-2' : cubic-bezier(0, 0, 0.5, 1),
+		'ease-out-3' : cubic-bezier(0, 0, 0.3, 1),
+		'ease-out-4' : cubic-bezier(0, 0, 0.1, 1),
+		'ease-out-5' : cubic-bezier(0, 0, 0, 1),
+		'ease-in-out-1' : cubic-bezier(0.1, 0, 0.9, 1),
+		'ease-in-out-2' : cubic-bezier(0.3, 0, 0.7, 1),
+		'ease-in-out-3' : cubic-bezier(0.5, 0, 0.5, 1),
+		'ease-in-out-4' : cubic-bezier(0.7, 0, 0.3, 1),
+		'ease-in-out-5' : cubic-bezier(0.9, 0, 0.1, 1),
+		'ease-elastic-1' : cubic-bezier(0.5, 0.75, 0.75, 1.25),
+		'ease-elastic-2' : cubic-bezier(0.5, 1, 0.75, 1.25),
+		'ease-elastic-3' : cubic-bezier(0.5, 1.25, 0.75, 1.25),
+		'ease-elastic-4' : cubic-bezier(0.5, 1.5, 0.75, 1.25),
+		'ease-elastic-5' : cubic-bezier(0.5, 1.75, 0.75, 1.25),
+		'ease-squish-1' : cubic-bezier(0.5, -0.1, 0.1, 1.5),
+		'ease-squish-2' : cubic-bezier(0.5, -0.3, 0.1, 1.5),
+		'ease-squish-3' : cubic-bezier(0.5, -0.5, 0.1, 1.5),
+		'ease-squish-4' : cubic-bezier(0.5, -0.7, 0.1, 1.5),
+		'ease-squish-5' : cubic-bezier(0.5, -0.9, 0.1, 1.5),
+		'ease-step-1' : steps(2),
+		'ease-step-2' : steps(3),
+		'ease-step-3' : steps(4),
+		'ease-step-4' : steps(7),
+		'ease-step-5' : steps(10),
+) !default;
+
+$font-weights    : (
+		'utils' : true,
+		'utils-property' : 'font-weight',
+		'fw-1' : 300,
+		'fw-2' : 400,
+		'fw-3' : 500,
+		'fw-4' : 700,
+) !default;
+
+$letter-spacings : (
+		'letter-spacing-1' : -0.05em,
+		'letter-spacing-2' : 0.025em,
+		'letter-spacing-3' : 0.05em,
+		'letter-spacing-4' : 0.075em,
+		'letter-spacing-5' : 0.15em,
+		'letter-spacing-6' : 0.5em,
+		'letter-spacing-7' : 0.75em,
+		'letter-spacing-8' : 1em,
+) !default;
+
+$line-heights    : (
+		'lineheight-1' : 0.95,
+		'lineheight-2' : 1.1,
+		'lineheight-3' : 1.25,
+		'lineheight-4' : 1.5,
+		'lineheight-5' : 1.6,
+) !default;
+
+$measures        : (
+		'utils' : true,
+		'property' : '--measure',
+		'measure-1' : 10ch,
+		'measure-2' : 30ch,
+		'measure-4' : 50ch,
+		'measure-5' : 60ch,
+		'measure-6' : 72ch,
+) !default;
+
+$radius          : (
+		'radius-1 ' : 0.2rem,
+		'radius-2 ' : 0.5rem,
+		'radius-3 ' : 1rem,
+		'radius-4 ' : 2rem,
+		'radius-5 ' : 4rem,
+		'radius-6 ' : 6rem,
+		'radius-7 ' : 8rem,
+		'radius-round' : 50%,
+		'radius-pill' : 100vmax,
+) !default;
+
+$shadows         : (
+		'shadow-color' : 220 3% 15%,
+		'shadow-strength' : 1%,
+		'shadow-1' : '0 1px 2px -1px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%))',
+		'shadow-2' : '0 3px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 7px 14px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%))',
+		'shadow-3' : '0 -1px 3px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 1px 2px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 2px 5px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 4px 12px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 12px 15px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%))',
+		'shadow-4' : '0 -2px 5px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 1px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 2px 2px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 5px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 9px 9px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 16px 16px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 6%))',
+		'shadow-5' : '0 -1px 2px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 2px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 5px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 10px 10px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 20px 20px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 40px 40px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%))',
+		'shadow-6' : '0 -1px 2px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 3px 2px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 7px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 12px 10px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 22px 18px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 41px 33px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 6%)), 0 100px 80px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%))',
+		'shadow-inner-1' : inset 0 0 0 1px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
+		'shadow-inner-2' : inset 0 1px 2px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
+		'shadow-inner-3' : inset 0 1px 4px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
+		'shadow-inner-4' : inset 0 2px 8px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
+		'shadow-inner-5' : inset 0 2px 14px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
+) !default;
+
+//////////////////////
+//// Private maps ////
+//////////////////////
+$breakpoints     : (
+		'width-xxl': 120em,
+		'width-xl': 90em,
+		'width-lg': 64em,
+		'width-md': 48em,
+		'width-sm': 30em,
+		'width-xs': 22.5em,
+		'width-xxs': 20.625em,
+);
+
+$ratios          : (
+		'minor-second' : 1.067,
+		'major-second': 1.125,
+		'minor-third' : 1.200,
+		'major-third' : 1.250,
+		'perfect-fourth' : 1.333,
+		'augmented fourth' : 1.414,
+		'perfect-fifth' : 1.500,
+		'golden-ratio' : 1.618
+);
+
+$suffixes        : (
+		'nato' : (
+				'alfa', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india',
+				'juliett', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec', 'romeo',
+				'sierra', 'tango', 'uniform', 'victor', 'whiskey', 'xray', 'yankee', 'zulu'
+		),
+		'roman' : (
+				'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
+				'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX',
+		),
+		'priority': (
+				'primary', 'secondary', 'tertiary', 'quaternary', 'quinary', 'senary', 'septenary', 'octonary', 'nonary', 'denary'
+		),
+		'color-adjectives' : (
+				'higher-values' : (
+						'dark', 'darker', 'darkest'
+				),
+				'lower-values': (
+						'light', 'lighter', 'lightest'
+				),
+		),
+		'size' : (
+				'higher-values' : (
+						'big', 'large', 'huge', 'giant', 'mega'
+				),
+				'lower-values': (
+						'medium', 'small', 'tiny', 'micro', 'atomic'
+				),
+		),
+		'size-shorted' : (
+				'higher-values' : (
+						'lg', 'xl', 'xxl',
+				),
+				'lower-values': (
+						'md', 'sm', 'xs', 'xxs'
+				),
+		),
+		'size-adjectives' : (
+				'higher-values' : (
+						'big', 'bigger', 'biggest', 'large', 'larger', 'largest', 'huge', 'giant', 'mega'
+				),
+				'lower-values': (
+						'medium', 'small', 'smaller', 'smallest', 'tiny', 'tinier', 'tiniest', 'micro', 'atomic'
+				),
+		),
+		'size-w-number' : (
+				'higher-values' : (
+						'big', 'big-2', 'big-3', 'large', 'large-2', 'large-3',
+						'huge', 'huge-2', 'huge-3', 'giant', 'giant-2', 'giant-3', 'mega', 'mega-2', 'mega-3',
+				),
+				'lower-values': (
+						'medium', 'small', 'small-2', 'small-3', 'tiny', 'tiny-2', 'tiny-3',
+						'micro', 'micro-2', 'micro-3', 'atomic', 'atomic-2', 'atomic-3',
+				),
+		),
+);

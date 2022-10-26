@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/*
+/// Converts map to list.
+/// @access public
+/// @param $value {map} - Map to be converted.
+/// @param $keep {string} - The key/values to be kept. Available options: 'keys', 'values' , 'both'.
+/// @return {list} - Converted list.
+ */
+@function list-converted($value, $keep: 'both') {
+	$keep : if(index('keys' 'values', $keep), $keep, 'both');
+
+	@if type-of($value) == 'map' {
+		$keys : ();
+		$values : ();
+
+		@each $key, $val in $value {
+			$keys : append($keys, $key);
+			$values : append($values, $val);
+		}
+
+		@if $keep == 'keys' {
+			@return $keys;
+		} @else if $keep == 'values' {
+			@return $values;
+		} @else {
+			@return zip($keys, $values);
+		}
+	}
+
+	@return if(type-of($value) != 'list', ($value,), $value);
+}
+
+/*
+/// Reverse order of values in list.
+/// @access public
+/// @param $list {list} - List to be reversed.
+/// @param $recursive {boolean}
+/// @return {list} - Reversed list.
+ */
+@function list-reverse($list, $recursive: false) {
+	$result : ();
+
+	@for $i from length($list) * -1 through -1 {
+		@if type-of(nth($list, abs($i))) == list and $recursive {
+			$result : append($result, list-reverse(nth($list, abs($i)), $recursive));
+		} @else {
+			$result : append($result, nth($list, abs($i)));
+		}
+	}
+
+	@return $result;
+}
+
+/*
+/// Slice values from list.
+/// @access public
+/// @param $list {list} - List to be sliced.
+/// @param $start {number} - Start index.
+/// @param $end {number} - End index. As default is the length of the list.
+/// @return {list} - Sliced list.
+ */
+@function list-slice($list, $start: 1, $end: length($list)) {
+	$result : null;
+
+	@if type-of($start) != number or type-of($end) != number {
+		@warn "Either $start or $end are not a number for `slice`.";
+	} @else if $start > $end {
+		@warn "The start index has to be lesser than or equals to the end index for `slice`.";
+	} @else if $start < 1 or $end < 1 {
+		@warn "List indexes must be non-zero integers for `slice`.";
+	} @else if $start > length($list) {
+		@warn "List index is #{$start} but list is only #{length($list)} item long for `slice`.";
+	} @else if $end > length($list) {
+		@warn "List index is #{$end} but list is only #{length($list)} item long for `slice`.";
+	} @else {
+		$result : ();
+
+		@for $i from $start through $end {
+			$result : append($result, nth($list, $i));
+		}
+	}
+
+	@return $result;
+}

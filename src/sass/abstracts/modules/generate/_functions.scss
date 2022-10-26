@@ -1,0 +1,314 @@
+@charset "UTF-8";
+@use 'sass:map' as *;
+@use 'sass:meta' as *;
+@use 'sass:list' as *;
+@use 'sass:math' as *;
+@use 'maps' as map-of;
+@use '../list' as *;
+@use '../math' as *;
+
+/*
+/// Returns list of corresponding suffixes based on $suffix parameter.
+/// @author - Martin Kamír
+/// @access private
+/// @param $suffix {string} - Name of the suffix that will be used in outputting the suffix list.
+/// @param $length {number} - The length of the suffix list.
+/// @return {list} - list of suffixes.
+ */
+@function _create-suffixes($suffix, $length) {
+	$lower-values : get(map-of.$suffixes, $suffix, lower-values);
+	$higher-values : get(map-of.$suffixes, $suffix, higher-values);
+
+	// Get the minimum and maximum index by:
+	// 1. Getting the length of the list.
+	// 2. Dividing the length of the list by half.
+	// 3. For the minimum index ceil the number up to the next integer. For the maximum index floor the number down to the next integer.
+	$min-index : ceil(div($length, 2));
+	$max-index : floor(div($length, 2));
+
+	// Slice the list to get the minimum and maximum values.
+	$lower-list : list-slice($lower-values, $end : $min-index);
+	$higher-list : list-slice($higher-values, $end : $max-index);
+
+	// Concatenate the lower and higher list.
+	// The lower list values will be at the beginning of the outputted list. The lower list has to be reversed, because the last values, which represents the smallest values would be at middle of the outputted list if not reversed (i.g: small, smaller, smallest, medium, big, bigger, etc...).
+	// The higher list will be at the end of the list.
+	@return join(list-reverse($lower-list), $higher-list);
+}
+
+/*
+/// Returns either a calculated number or the calculation method. Values that are calculated are base and ratio. Return is based on $pre(preservation) number,
+/// which sets how many values will be preserved(can't be changed with ratio or base css properties) by getting the already calculated number. When $pre(preservation) reaches the set maximum value
+/// calculation method will be returned. Calculation of how much ratio will scale the base number is based on the current index($i) in the loop. So in every loop interval, the ratio will be increased by 1.
+/// @author - Martin Kamír
+/// @access private
+/// @param $b {number} - Base value.
+/// @param $r {number} - Ratio value.
+/// @param $pre {number} - Preserve value.
+/// @param $i {number} - Index value.
+/// @param $p {string} - Prefix value.
+/// @return {number/calculation} - Calculated number or calculation method.
+ */
+@function _preservation($b, $r, $pre, $i, $p) {
+	@if ($i == 1) {
+		@if ($pre >= 1) {
+			@return $b * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 2) {
+		@if ($pre >= 2) {
+			@return $b * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 3) {
+		@if ($pre >= 3) {
+			@return $b * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 4) {
+		@if ($pre >= 4) {
+			@return $b * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 5) {
+		@if ($pre >= 5) {
+			@return $b * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 6) {
+		@if ($pre >= 6) {
+			@return $b * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 7) {
+		@if ($pre >= 7) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 8) {
+		@if ($pre >= 8) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 9) {
+		@if ($pre >= 9) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 10) {
+		@if ($pre >= 10) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 11) {
+		@if ($pre >= 11) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 12) {
+		@if ($pre >= 12) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 13) {
+		@if ($pre >= 13) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 14) {
+		@if ($pre >= 14) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 15) {
+		@if ($pre >= 15) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 16) {
+		@if ($pre >= 16) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 17) {
+		@if ($pre >= 17) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 18) {
+		@if ($pre >= 18) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 19) {
+		@if ($pre >= 19) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 20) {
+		@if ($pre >= 20) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 21) {
+		@if ($pre >= 21) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 22) {
+		@if ($pre >= 22) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 23) {
+		@if ($pre >= 23) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 24) {
+		@if ($pre >= 24) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+	@if ($i == 25) {
+		@if ($pre >= 25) {
+			@return $b * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r * $r;
+		} @else {
+			@return calc(var(--#{$p}base) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio) * var(--#{$p}ratio));
+		}
+	}
+}
+
+/*
+/// Get a ratio value from string.
+/// @author - Martin Kamír
+/// @access private
+/// @param $ratio {string/number} - Name of ratio.
+/// @return {number} - Ratio value.
+ */
+@function get-ratio($ratio) {
+	@return if(map-has-key(map-of.$ratios, $ratio), get(map-of.$ratios, $ratio), $ratio);
+}
+
+/*
+/// Returns string of suffix based on current $i in the loop.
+/// @author - Martin Kamír
+/// @access private
+/// @param $suffix {string} - Suffix type to get.
+/// @param $length {number} - The length of the list.
+/// @param $i {number} - The current index in loop.
+/// @return {string} - The current suffix.
+ */
+@function get-suffix($suffix, $length, $i) {
+	@if ($suffix == 'numeric') {
+		@return $i;
+
+	} @else if ($suffix == 'hundreds') {
+		@return $i + '00';
+
+	} @else if (type-of($suffix) == 'list') {
+		@return nth($suffix, $i);
+
+	} @else if (index(('roman', 'nato', 'priority'), $suffix)) {
+		@return nth(get(map-of.$suffixes, $suffix), $i);
+
+	} @else if (index(('size', 'size-shorted', 'size-w-number', 'size-adjectives', 'color-adjectives'), $suffix)) {
+		$map-of-suffixes : (
+				'size' : _create-suffixes($suffix, $length),
+				'size-shorted' : _create-suffixes($suffix, $length),
+				'size-w-number' : _create-suffixes($suffix, $length),
+				'size-adjectives' : _create-suffixes($suffix, $length),
+				'color-adjectives' : _create-suffixes($suffix, $length),
+		);
+
+		@each $key, $list-of-suffixes in $map-of-suffixes {
+			@if ($suffix == $key) {
+				@return nth($list-of-suffixes, $i);
+			}
+		}
+	} @else {
+		@error 'Invalid suffix type of #{$suffix}. Valid types are: #{map-keys(map-of.$suffixes)}';
+	}
+}
+
+/*
+/// Returns either 1. calculated number or 2. calculation method with scaled ratio affected by current index($i) 2. calculation method.
+/// @author - Martin Kamír
+/// @access private
+/// @param $base {number} - Base value.
+/// @param $ratio {number} - Ratio value.
+/// @param $preserve {number} - Preserve value.
+/// @param $i {number} - Index value.
+/// @param $prefix {string} - Prefix value.
+/// @param $suffix {string} - Suffix value.
+/// @return {number/calculation} - Calculated number or calculation method.
+ */
+@function get-preserved-value($base, $ratio, $preserve, $prefix, $suffix, $i) {
+	@if ($preserve >= $i) {
+		@return rounded(_preservation($base, $ratio, $preserve, $i, $prefix), 2);
+	} @else if ($preserve + 1 == $i) {
+		@return _preservation($base, $ratio, $preserve, $i, $prefix);
+	} @else {
+		@return calc(var(--#{$prefix}#{$suffix}) * var(--#{$prefix}ratio));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+
+.switcher {
+	display   : flex;
+	flex-wrap : wrap;
+	gap       : var(--space, #{$space});
+
+	& > img {
+		inline-size : 50%;
+	}
+
+	& > * {
+		flex-basis : calc((var(--measure, #{$measure}) - 100%) * 999);
+		flex-grow  : 1;
+	}
+}

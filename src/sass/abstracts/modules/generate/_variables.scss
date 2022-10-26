@@ -1,0 +1,39 @@
+/// Configuration variables for generation mixins.
+/// Variables are set to !default so they can be overridden.
+$suffix                           : 'numeric' !default;
+$utils                            : true !default;
+$screen-min                       : 22.5em !default;
+$screen-max                       : 90em !default;
+
+$colors-format                    : 'hsl()' !default;
+$colors-prefix                    : 'clr-' !default;
+$colors-suffix                    : $suffix !default;
+$colors-utils                     : $utils !default;
+$colors-utils-property-color      : 'color' !default;
+$colors-utils-property-bg         : 'bg' !default;
+$colors-utils-prefix-color        : 'fc-' !default;
+$colors-utils-prefix-bg           : 'bg-' !default;
+
+$font-types-prefix                : 'fs-' !default;
+$font-types-suffix                : $suffix !default;
+$font-types-utils                 : $utils !default;
+$font-types-utils-property        : 'font-size' !default;
+
+$space-types-prefix               : 'space-' !default;
+$space-types-suffix               : $suffix !default;
+$space-types-utils                : $utils !default;
+$space-types-utils-property       : '--space' !default;
+
+$fluid-font-types-screen-min      : $screen-min !default;
+$fluid-font-types-screen-max      : $screen-max !default;
+$fluid-font-types-prefix          : 'fs-fluid-' !default;
+$fluid-font-types-suffix          : $suffix !default;
+$fluid-font-types-utils           : $utils !default;
+$fluid-font-types-utils-property  : 'font-size' !default;
+
+$fluid-space-types-screen-min     : $screen-min !default;
+$fluid-space-types-screen-max     : $screen-max !default;
+$fluid-space-types-prefix         : 'space-fluid-' !default;
+$fluid-space-types-suffix         : $suffix !default;
+$fluid-space-types-utils          : $utils !default;
+$fluid-space-types-utils-property : '--space' !default;
