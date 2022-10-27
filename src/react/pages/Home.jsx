@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import Cover from "../components/Cover";
 import Button from "../elements/Button";
 import React from "react";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Home() {
 	return (
@@ -43,9 +44,12 @@ export default function Home() {
 						<h2>Featured</h2>
 						<Button href="/portfolio" content="See All"/>
 					</div>
-					<div className="grid">
-
-					</div>
+					<ProjectCard cards={[
+						{href: '#', img: 'cat.jpg', title: 'Project Del Sol', desc: 'View All Projects'},
+						{href: '#', img: 'cat.jpg', title: '228B Tower', desc: 'View All Projects'},
+						{href: '#', img: 'cat.jpg', title: 'Le Prototype', desc: 'View All Projects'},
+					]}/>
+					<Button href="/portfolio" content="See All"/>
 				</div>
 			</section>
 		</main>
