@@ -1,0 +1,5 @@
+@use '../abstracts/modules/math';
+
+.logo {
+	inline-size  : math.clamped(4.85rem, 6rem);
+}

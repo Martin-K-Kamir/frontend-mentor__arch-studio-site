@@ -634,9 +634,9 @@
 			$map   : map-remove($map, 'utils');
 		}
 
-		@if map-has-key($map, 'property') {
-			$utils-property : map-get($map, 'property');
-			$map            : map-remove($map, 'property');
+		@if map-has-key($map, 'utils-property') {
+			$utils-property : map-get($map, 'utils-property');
+			$map            : map-remove($map, 'utils-property');
 		}
 
 		@if map-has-key($map, 'utils-ignore') {

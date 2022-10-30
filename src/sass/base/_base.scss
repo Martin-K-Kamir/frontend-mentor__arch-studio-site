@@ -1,0 +1,19 @@
+
+body {
+	font-family      : var(--ff-body);
+	font-size        : var(--fs-1);
+	font-weight      : var(--fw-3);
+	line-height      : var(--line-height-3);
+	color            : hsl(var(--clr-neutral-6));
+	background-color : hsl(var(--clr-neutral-1));
+}
+
+:where(a, button) {
+	text-decoration : none;
+	color           : inherit;
+
+	&:focus-visible {
+		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
+		outline-offset : calc(var(--outline-size) * 2 + 1px);
+	}
+}

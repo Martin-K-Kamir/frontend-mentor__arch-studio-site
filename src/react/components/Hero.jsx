@@ -1,19 +1,21 @@
-import React, {useState} from "react";
-
-import Button from "../elements/Button";
+import Slider from "./Slider";
+import Button from "./Button";
+import Image from "./Image";
 
 export default function Hero(props) {
-	const [hasBox, setHasBox] = useState(props.hasBox ? props.hasBox : false);
 
 	return (
 		<section className="hero">
+			{props.image.names ?
+				<Slider dir={props.image.dir} names={props.image.names} widths={props.image.widths}/>
+				:
+				<Image dir={props.image.dir} name="hero" widths={props.image.widths}/>}
 			<div className="wrapper">
-				{props.imgSrc && <img src={props.imgSrc} alt={props.imgAlt} aria-hidden={props.imgAlt ? true : false}/>}
-				<div className={`${hasBox ? 'hero__box' : 'hero__stacked'}`}>
-					{props.subtitle && <h1>{props.subtitle}</h1>}
-					<h1>{props.title}</h1>
-					{props.desc && <p>{props.desc}</p>}
-					{props.button ? <Button href={props.button.href} content={props.button.content}/> : null}
+				<div className={props.image.names ? 'hero__stacked' : 'hero__box'}>
+					{props.subtitle && <p className="title-4">{props.subtitle}</p>}
+					<h1 className={props.image.names ? 'title-3' : 'title-2'}>{props.title}</h1>
+					{props.desc && <p className="desc">{props.desc}</p>}
+					{props.button ? <Button href={props.button.href} content={props.button.content} icon={props.button.icon}/> : null}
 				</div>
 			</div>
 		</section>

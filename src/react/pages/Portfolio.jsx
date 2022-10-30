@@ -1,15 +1,16 @@
-import ProjectCard from "../components/ProjectCard";
 import React from "react";
+import Cards from "../components/Cards";
+import data from "../../data";
+import PageLabel from "../components/PageLabel";
 
 
 export default function Portfolio() {
 	return (
 		<main>
-			<ProjectCard cards={[
-				{href: '#', img: 'cat.jpg', title: 'Project Del Sol', desc: 'View All Projects'},
-				{href: '#', img: 'cat.jpg', title: '228B Tower', desc: 'View All Projects'},
-				{href: '#', img: 'cat.jpg', title: 'Le Prototype', desc: 'View All Projects'},
-			]}/>
+			<PageLabel page="portfolio"/>
+			<div className="wrapper">
+				<Cards type="project" data={data.portfolio}/>
+			</div>
 		</main>
 	);
 }

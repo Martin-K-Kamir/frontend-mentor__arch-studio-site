@@ -1,0 +1,10 @@
+
+.navigation {
+	ul {
+		display : flex;
+
+		@media (width < $width-sm) {
+			flex-direction: column;
+		}
+	}
+}

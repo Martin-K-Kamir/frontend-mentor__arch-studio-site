@@ -1,0 +1,50 @@
+@use 'abstracts/modules/generate';
+@use 'abstracts/modules/math';
+
+:root {
+	@include generate.all((
+			'colors' : (
+					'src' : ('neutral' : (hsl(225, 13%, 12%))),
+					'tints' : (32%, 47%, 80%, 94%, 100%),
+			),
+			'font-types' : (
+					'base' : 0.85rem,
+					'ratio' : 1.333,
+					'length' : 3,
+			),
+			'fluid-font-types' : (
+					'src' : (
+							math.clamped(3rem, 4.5rem),
+							math.clamped(3rem, 6rem),
+							math.clamped(7.5rem, 15.625rem, $width-md, $width-xl)
+					),
+			),
+			'utilities' : (
+					'src' : (
+							generate.$font-weights,
+							generate.$line-heights,
+					)
+			),)
+	);
+
+	--ff-primary    : 'League Spartan', sans-serif;
+	--ff-body       : var(--ff-primary);
+	--ff-heading    : var(--ff-primary);
+	--outline-size  : max(1px, 0.08em);
+	--outline-style : solid;
+	--outline-color : currentColor;
+	--body-size     : 69.375em;
+	--body-padding  : 2em;
+}
+
+.sr-only {
+	position    : absolute;
+	overflow    : hidden;
+	margin      : -1px;
+	padding     : 0;
+	width       : 1px;
+	height      : 1px;
+	white-space : nowrap;
+	clip        : rect(0, 0, 0, 0);
+	border      : 0;
+}

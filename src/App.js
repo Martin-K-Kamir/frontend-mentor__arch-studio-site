@@ -8,6 +8,7 @@ import Home from "./react/pages/Home";
 import About from "./react/pages/About";
 import Portfolio from "./react/pages/Portfolio";
 import Contact from "./react/pages/Contact";
+import ComingSoon from "./react/pages/ComingSoon";
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
 						<Route path="/portfolio" element={<Portfolio/>}/>
 						<Route path="/about-us" element={<About/>}/>
 						<Route path="/contact" element={<Contact/>}/>
+						<Route path="/coming-soon" element={<ComingSoon/>}/>
 					</Routes>
 					<Footer/>
 				</ScrollToTop>

@@ -1,17 +1,27 @@
+import React, {useState} from "react";
 import Navigation from "./Navigation";
-import Logo from "../elements/Logo";
+import Logo from "./Logo";
+import {Link} from "react-router-dom";
 
 
 export default function Header() {
-	return (
-		<header className="header">
-			<div className="wrapper">
-				<a href="#"><Logo/></a>
-				<Navigation label="primary"/>
-				<button className="button-hamburger" aria-controls="navigation-primary" aria-expanded="false">
-					<span className="sr-only">menu</span>
-				</button>
-			</div>
-		</header>
-	);
+	const [navOpen, setNavOpen] = useState(false);
+
+	function handleToggleNav() {
+		setNavOpen(!navOpen);
+	}
+
+
+	return (<header className="header">
+		<div className="[ header__container ] [ wrapper fg-neutral-1 ]">
+			<Link to="/" aria-label="homepage"><Logo/></Link>
+			<button className="btn-hamburger" aria-controls="navigation-primary" aria-expanded={navOpen} aria-label="menu" onClick={handleToggleNav}>
+				<span aria-hidden={true}></span>
+				<span aria-hidden={true}></span>
+				<span aria-hidden={true}></span>
+				<span aria-hidden={true}></span>
+			</button>
+			<Navigation label="primary" open={navOpen}/>
+		</div>
+	</header>);
 }

@@ -176,7 +176,9 @@
 /// @param $max-width {number} - Maximum breakpoint value.
 /// @return {number} - Clamp function.
  */
-@function clamped($min-value, $max-value, $min-width : 22.5em, $max-width : 90em) {
+$clamped-min-width : 30em !default;
+$clamped-max-width : 90em !default;
+@function clamped($min-value, $max-value, $min-width : $clamped-min-width, $max-width : $clamped-max-width) {
 	$value-unit : null;
 	$width-unit : null;
 	$params : ($min-value, $max-value, $min-width, $max-width);
@@ -243,8 +245,8 @@
 /// @param $index {number} - The base index from which to calculate the layer index.
 /// @return {number} - Index number of layer.
  */
-$list-of-layers : ('base') !default;
-$start-index    : 1 !default;
+$list-of-layers    : ('base') !default;
+$start-index       : 1 !default;
 @function layer($layer-name, $index: $start-index) {
 	@if index($list-of-layers, $layer-name) {
 		@return (length($list-of-layers) - index($list-of-layers, $layer-name))+$index;

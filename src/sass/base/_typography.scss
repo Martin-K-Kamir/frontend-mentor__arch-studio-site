@@ -1,0 +1,27 @@
+
+.desc {
+	font-size : var(--fs-1);
+}
+
+[class*="title-"] {
+	font-weight    : var(--fw-4);
+	line-height    : var(--line-height-title);
+	letter-spacing : -0.025em;
+}
+
+.title-1 {
+	font-size   : var(--fs-3);
+	line-height : var(--line-height-2);
+}
+
+.title-2 {
+	font-size : var(--fs-fluid-1);
+}
+
+.title-3 {
+	font-size : var(--fs-fluid-2);
+}
+
+.title-4 {
+	font-size : var(--fs-fluid-3);
+}

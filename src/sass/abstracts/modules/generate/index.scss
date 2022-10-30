@@ -148,6 +148,10 @@
 /// The utilities generator also gives ability for source maps to be able generate utility classes with key 'utils' to true and key 'property' to be used.
  */
 @mixin all($config) {
+	@if map-has-key($config, 'colors') {
+		@include colors($config);
+	}
+
 	@if map-has-key($config, 'font-types') {
 		@include font-types($config);
 	}
@@ -162,10 +166,6 @@
 
 	@if map-has-key($config, 'fluid-space-types') {
 		@include fluid-space-types($config);
-	}
-
-	@if map-has-key($config, 'colors') {
-		@include colors($config);
 	}
 
 	@if map-has-key($config, 'utilities') {

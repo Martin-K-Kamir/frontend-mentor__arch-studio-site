@@ -1,0 +1,5 @@
+
+.wrapper {
+	inline-size   : min(100% - var(--body-padding) * 2, var(--body-size));
+	margin-inline : auto;
+}

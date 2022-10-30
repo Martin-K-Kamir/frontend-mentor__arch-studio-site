@@ -1,0 +1,48 @@
+
+.header {
+
+
+	&__container {
+		position    : relative;
+		isolation   : isolate;
+		display     : flex;
+		align-items : center;
+
+		@media (width < $width-sm) {
+			justify-content : space-between;
+		}
+	}
+
+	.navigation {
+		@media (width < $width-sm) {
+			position         : absolute;
+			inset            : 100% 0 auto 0;
+			z-index : -1;
+			background-color : hsl(var(--clr-neutral-3));
+			transition       : transform 200ms ease-in-out;
+		}
+	}
+
+	.navigation[data-open="false"] {
+		@media (width < $width-sm) {
+			visibility : hidden;
+			opacity    : 0;
+			transform  : translateY(-100%);
+		}
+	}
+
+	.navigation[data-open="true"] {
+		@media (width < $width-sm) {
+			visibility : visible;
+			opacity    : 1;
+			transform  : translateY(0);
+		}
+	}
+
+	.btn-hamburger {
+		@media (width >= $width-sm) {
+			display : none;
+		}
+	}
+
+}

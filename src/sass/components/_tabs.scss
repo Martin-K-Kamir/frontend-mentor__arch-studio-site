@@ -1,0 +1,27 @@
+
+.tabs {
+	display : flex;
+
+	button {
+		--_fg            : var(--clr-neutral-5);
+		--_bg            : var(--clr-neutral-1);
+
+		min-inline-size  : 3.5em;
+		aspect-ratio     : 1;
+		cursor           : pointer;
+		font-size        : var(--fs-1);
+		font-weight      : var(--fw-4);
+		color            : hsl(var(--_fg));
+		background-color : hsl(var(--_bg));
+		border           : none
+	}
+
+	button:where(:hover, :focus-visible) {
+		--_bg : var(--clr-neutral-2);
+	}
+
+	button[aria-selected="true"] {
+		--_fg : var(--clr-neutral-1);
+		--_bg : var(--clr-neutral-6);
+	}
+}

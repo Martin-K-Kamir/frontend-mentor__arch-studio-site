@@ -92,7 +92,7 @@ $font-weights    : (
 ) !default;
 
 $letter-spacings : (
-		'letter-spacing-1' : -0.05em,
+		'letter-spacing-1' : -0.005em,
 		'letter-spacing-2' : 0.025em,
 		'letter-spacing-3' : 0.05em,
 		'letter-spacing-4' : 0.075em,
@@ -103,11 +103,10 @@ $letter-spacings : (
 ) !default;
 
 $line-heights    : (
-		'lineheight-1' : 0.95,
-		'lineheight-2' : 1.1,
-		'lineheight-3' : 1.25,
-		'lineheight-4' : 1.5,
-		'lineheight-5' : 1.6,
+		'line-height-1' : 0.9,
+		'line-height-2' : 1.25,
+		'line-height-3' : 1.4,
+		'line-height-title' : calc(2px + 2ex + 2px),
 ) !default;
 
 $measures        : (

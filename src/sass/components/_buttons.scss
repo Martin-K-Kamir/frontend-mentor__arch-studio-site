@@ -1,0 +1,101 @@
+[class*="btn"] {
+	--transition-duration : 150ms;
+	--transition-timing   : ease-in-out;
+}
+
+.btn {
+	--_fg                 : var(--clr-neutral-1);
+	--_bg                 : var(--clr-neutral-6);
+
+	cursor                : pointer;
+	display               : inline-flex;
+	align-items           : center;
+	padding               : 1.5em 2em;
+	font-size             : var(--fs-1);
+	font-weight           : var(--fw-4);
+	letter-spacing        : 0.025em;
+	line-height           : var(--line-height-1);
+	color                 : hsl(var(--_fg));
+	background-color      : hsl(var(--_bg));
+	border                : none;
+	outline               : none;
+	transition            : background-color var(--transition-duration) var(--transition-timing);
+
+	&:where(:hover, :focus-visible) {
+		--_bg : var(--clr-neutral-5);
+	}
+
+	&:active {
+		--_bg : var(--clr-neutral-3);
+	}
+
+	&:has(.icon) {
+		gap : 1ch;
+	}
+
+	.icon {
+		transform   : translateY(-0.1em);
+		inline-size : 1em;
+		block-size  : 1em;
+		transition  : transform var(--transition-duration) var(--transition-timing);
+	}
+
+	&:where(:hover, :focus-visible) .icon[data-rear="true"] {
+		transform : translate(0.15em, -0.1em);
+	}
+}
+
+.btn[data-type="ghost"] {
+	--_fg   : var(--clr-neutral-6);
+	--_bg   : transparent;
+
+	padding : 0;
+}
+
+.btn-hamburger {
+	--_fg            : var(--clr-neutral-6);
+
+	cursor           : pointer;
+	position         : relative;
+	inline-size      : 2.5rem;
+	block-size       : 2.5rem;
+	background-color : transparent;
+	border           : none;
+
+	span {
+		position           : absolute;
+		block-size         : 0.2rem;
+		inline-size        : 60%;
+		background-color   : hsl(var(--_fg));
+		inset-block-start  : 50%;
+		inset-inline-start : 50%;
+		translate          : -50% -50%;
+		transition         : transform var(--transition-duration) var(--transition-timing), inline-size var(--transition-duration) var(--transition-timing), inset var(--transition-duration) var(--transition-timing);
+	}
+
+	span:nth-child(1) {
+		inset-block-start : 30%;
+	}
+
+	span:nth-child(4) {
+		inset-block-start : 70%;
+	}
+
+	&[aria-expanded="true"] span:nth-child(1) {
+		inset-block-start : 1.2rem;
+		inline-size       : 0;
+	}
+
+	&[aria-expanded="true"] span:nth-child(2) {
+		transform : rotate(45deg);
+	}
+
+	&[aria-expanded="true"] span:nth-child(3) {
+		transform : rotate(-45deg);
+	}
+
+	&[aria-expanded="true"] span:nth-child(4) {
+		inset-block-start : 1.2rem;
+		inline-size       : 0;
+	}
+}

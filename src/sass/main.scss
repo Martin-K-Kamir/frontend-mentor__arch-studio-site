@@ -1,5 +1,26 @@
+@import 'abstracts/variables';
 
-body {
-	background-color: #2a2a2a;
-	color: white;
+@import 'base/reset';
+@import 'base/base';
+@import 'base/typography';
+
+@import 'components/buttons';
+@import 'components/icons';
+@import 'components/tabs';
+@import 'components/slider';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/logo';
+@import 'components/navigation';
+
+@import 'layout/wrapper';
+@import 'layout/grid';
+@import 'layout/switcher';
+@import 'layout/columns';
+
+@import 'utilities';
+
+.leaflet-container {
+	width : 100vw;
+	height : 40rem;
 }
