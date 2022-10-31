@@ -11,7 +11,7 @@
 	display          : inline-flex;
 	align-items      : center;
 	padding          : 1.5em 2em;
-	font-size        : var(--fs-1);
+	font-size        : var(--fs-2);
 	font-weight      : var(--fw-4);
 	letter-spacing   : 0.025em;
 	line-height      : var(--line-height-1);
@@ -34,6 +34,7 @@
 	}
 
 	.icon {
+		flex-shrink: 0;
 		transform   : translateY(-0.1em);
 		inline-size : 1em;
 		block-size  : 1em;
@@ -43,7 +44,9 @@
 	&:where(:hover, :focus-visible) .icon[data-rear="true"] {
 		transform : translate(0.15em, -0.1em);
 	}
+
 }
+
 
 .btn[data-type="ghost"] {
 	--_fg   : var(--clr-neutral-6);

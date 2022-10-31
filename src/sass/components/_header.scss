@@ -12,13 +12,13 @@
 		display     : flex;
 		align-items : center;
 
-		@media (width < $width-sm) {
+		@media (width < $width-md) {
 			justify-content : space-between;
 		}
 	}
 
 	.navigation {
-		@media (width < $width-sm) {
+		@media (width < $width-md) {
 			position         : absolute;
 			inset            : auto 0 0 var(--body-padding);
 			z-index          : -1;
@@ -27,7 +27,7 @@
 	}
 
 	.navigation:where([data-open="false"], [data-open="true"]) {
-		@media (width < $width-sm) {
+		@media (width < $width-md) {
 			animation-duration        : 200ms;
 			animation-timing-function : ease-in-out;
 			animation-fill-mode       : forwards;
@@ -35,13 +35,13 @@
 	}
 
 	.navigation[data-open="false"] {
-		@media (width < $width-sm) {
+		@media (width < $width-md) {
 			animation-name : navigation-close;
 		}
 	}
 
 	.navigation[data-open="true"] {
-		@media (width < $width-sm) {
+		@media (width < $width-md) {
 			animation-name : navigation-open;
 		}
 	}
@@ -49,7 +49,7 @@
 	.btn-hamburger {
 		translate : 25% 0;
 
-		@media (width >= $width-sm) {
+		@media (width >= $width-md) {
 			display : none;
 		}
 	}

@@ -1,18 +1,40 @@
 
 .footer {
-	inline-size   : min(100%, var(--body-size));
 	margin-inline : auto;
 
+	@media (width >= $width-lg) {
+		inline-size : min(100% - var(--body-padding) * 2, var(--body-size));
+	}
+
 	.footer__container {
-		padding-inline : var(--body-padding);
-		inline-size    : min(100%, 984px);
+		--_slice       : 9.9rem;
+
+		position       : relative;
 		display        : flex;
 		flex-direction : column;
-		align-items     : center;
-		//justify-content : space-between;
+		align-items    : center;
+
+		@media (width >= $width-md) {
+			max-inline-size : calc(100% - var(--_slice));
+			flex-direction  : row;
+		}
+
+		@media (width >= $width-lg) {
+			--_slice : 7.7rem;
+		}
+	}
+
+	.logo {
+		@media (width < $width-md) {
+			margin-block-start : -50%;
+		}
 	}
 
 	.btn {
-		//translate : 50% 0;
+		@media (width >= $width-md) {
+			position         : absolute;
+			inset-inline-end : 0;
+			translate        : 50% 0;
+		}
 	}
 }

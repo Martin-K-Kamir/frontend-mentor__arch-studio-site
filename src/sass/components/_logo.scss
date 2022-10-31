@@ -5,6 +5,7 @@
 
 	svg {
 		inline-size : math.clamped(4.85rem, 6rem);
+		height : auto;
 	}
 }
 
@@ -12,13 +13,13 @@
 	--_fg            : var(--clr-neutral-1);
 	--_bg            : var(--clr-neutral-6);
 
-	display: grid;
-	place-items: center;
-	inline-size            : math.clamped(7.5rem,  12.5rem);
+	display          : grid;
+	place-items      : center;
+	inline-size      : math.clamped(7.5rem, 10rem);
 	aspect-ratio     : 1;
 	background-color : hsl(var(--_bg));
 
 	svg {
+		inline-size : math.clamped(3.625rem, 6rem);
 	}
-
 }

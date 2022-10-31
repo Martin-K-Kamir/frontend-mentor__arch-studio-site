@@ -3,7 +3,7 @@
 	ul {
 		display : flex;
 
-		@media (width < $width-sm) {
+		@media (width < $width-md) {
 			flex-direction : column;
 		}
 	}
@@ -13,8 +13,8 @@
 		color : hsl(var(--clr-neutral-5));
 
 		.header & {
-			@media (width < $width-sm) {
-				font-size : var(--fs-2);
+			@media (width < $width-md) {
+				font-size : var(--fs-3);
 				color : hsl(var(--clr-neutral-6));
 			}
 		}
