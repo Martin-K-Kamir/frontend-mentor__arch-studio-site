@@ -103,6 +103,8 @@ $letter-spacings : (
 ) !default;
 
 $line-heights    : (
+		'utils' : true,
+		'utils-property' : 'line-height',
 		'line-height-1' : 0.9,
 		'line-height-2' : 1.25,
 		'line-height-3' : 1.4,

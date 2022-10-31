@@ -4,22 +4,22 @@
 }
 
 .btn {
-	--_fg                 : var(--clr-neutral-1);
-	--_bg                 : var(--clr-neutral-6);
+	--_fg            : var(--clr-neutral-1);
+	--_bg            : var(--clr-neutral-6);
 
-	cursor                : pointer;
-	display               : inline-flex;
-	align-items           : center;
-	padding               : 1.5em 2em;
-	font-size             : var(--fs-1);
-	font-weight           : var(--fw-4);
-	letter-spacing        : 0.025em;
-	line-height           : var(--line-height-1);
-	color                 : hsl(var(--_fg));
-	background-color      : hsl(var(--_bg));
-	border                : none;
-	outline               : none;
-	transition            : background-color var(--transition-duration) var(--transition-timing);
+	cursor           : pointer;
+	display          : inline-flex;
+	align-items      : center;
+	padding          : 1.5em 2em;
+	font-size        : var(--fs-1);
+	font-weight      : var(--fw-4);
+	letter-spacing   : 0.025em;
+	line-height      : var(--line-height-1);
+	color            : hsl(var(--_fg));
+	background-color : hsl(var(--_bg));
+	border           : none;
+	outline          : none;
+	transition       : background-color var(--transition-duration) var(--transition-timing);
 
 	&:where(:hover, :focus-visible) {
 		--_bg : var(--clr-neutral-5);
@@ -82,7 +82,7 @@
 	}
 
 	&[aria-expanded="true"] span:nth-child(1) {
-		inset-block-start : 1.2rem;
+		inset-block-start : 1.3rem;
 		inline-size       : 0;
 	}
 
@@ -95,7 +95,7 @@
 	}
 
 	&[aria-expanded="true"] span:nth-child(4) {
-		inset-block-start : 1.2rem;
+		inset-block-start : 1.3rem;
 		inline-size       : 0;
 	}
 }

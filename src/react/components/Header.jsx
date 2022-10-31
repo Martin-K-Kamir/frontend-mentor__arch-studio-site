@@ -13,15 +13,17 @@ export default function Header() {
 
 
 	return (<header className="header">
-		<div className="[ header__container ] [ wrapper fg-neutral-1 ]">
-			<Link to="/" aria-label="homepage"><Logo/></Link>
-			<button className="btn-hamburger" aria-controls="navigation-primary" aria-expanded={navOpen} aria-label="menu" onClick={handleToggleNav}>
-				<span aria-hidden={true}></span>
-				<span aria-hidden={true}></span>
-				<span aria-hidden={true}></span>
-				<span aria-hidden={true}></span>
-			</button>
-			<Navigation label="primary" open={navOpen}/>
+		<div className="[ header__container ] [ bg-neutral-1 ]">
+			<div className="[ header__content ] [ wrapper ]">
+				<Link to="/" aria-label="homepage"><Logo/></Link>
+				<button className="btn-hamburger" aria-controls="navigation-primary" aria-expanded={navOpen} aria-label="menu" onClick={handleToggleNav}>
+					<span aria-hidden={true}></span>
+					<span aria-hidden={true}></span>
+					<span aria-hidden={true}></span>
+					<span aria-hidden={true}></span>
+				</button>
+				<Navigation label="primary" open={navOpen}/>
+			</div>
 		</div>
 	</header>);
-}
+};

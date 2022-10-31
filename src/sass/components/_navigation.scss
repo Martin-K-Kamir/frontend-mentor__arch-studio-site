@@ -4,7 +4,21 @@
 		display : flex;
 
 		@media (width < $width-sm) {
-			flex-direction: column;
+			flex-direction : column;
 		}
 	}
+
+	li {
+		font-weight : var(--fw-4);
+		color : hsl(var(--clr-neutral-5));
+
+		.header & {
+			@media (width < $width-sm) {
+				font-size : var(--fs-2);
+				color : hsl(var(--clr-neutral-6));
+			}
+		}
+	}
+
+
 }

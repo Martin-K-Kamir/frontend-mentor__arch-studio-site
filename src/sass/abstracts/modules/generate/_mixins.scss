@@ -54,7 +54,7 @@
 			'utils' : $utils,
 			'utils-property-color' : $utils-property-color,
 			'utils-property-bg' : $utils-property-bg,
-			'utils-prefix-text' : $utils-prefix-color,
+			'utils-prefix-color' : $utils-prefix-color,
 			'utils-prefix-bg' : $utils-prefix-bg,
 	);
 
@@ -577,11 +577,21 @@
 			--#{$prefix}#{$key}#{$_suffix} : #{$value};
 
 			@if $utils {
+				$utils-value : null;
+
+				@if $format == 'rgb' {
+					$utils-value : rgb(var(--#{$prefix}#{$key}#{$_suffix}));
+				} @else if $format == 'hsl' {
+					$utils-value : hsl(var(--#{$prefix}#{$key}#{$_suffix}));
+				} @else {
+					$utils-value : var(--#{$prefix}#{$key}#{$_suffix});
+				}
+
 				@at-root .#{$utils-prefix-color}#{$key}#{$_suffix} {
-					#{$utils-property-color} : var(--#{$prefix}#{$key}#{$_suffix});
+					#{$utils-property-color} : $utils-value;
 				}
 				@at-root .#{$utils-prefix-bg}#{$key}#{$_suffix} {
-					#{$utils-property-bg} : var(--#{$prefix}#{$key}#{$_suffix});
+					#{$utils-property-bg} : $utils-value;
 				}
 			}
 		}

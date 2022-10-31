@@ -1,0 +1,18 @@
+
+.footer {
+	inline-size   : min(100%, var(--body-size));
+	margin-inline : auto;
+
+	.footer__container {
+		padding-inline : var(--body-padding);
+		inline-size    : min(100%, 984px);
+		display        : flex;
+		flex-direction : column;
+		align-items     : center;
+		//justify-content : space-between;
+	}
+
+	.btn {
+		//translate : 50% 0;
+	}
+}

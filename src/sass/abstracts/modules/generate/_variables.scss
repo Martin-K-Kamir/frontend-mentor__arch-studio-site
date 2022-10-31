@@ -10,8 +10,8 @@ $colors-prefix                    : 'clr-' !default;
 $colors-suffix                    : $suffix !default;
 $colors-utils                     : $utils !default;
 $colors-utils-property-color      : 'color' !default;
-$colors-utils-property-bg         : 'bg' !default;
-$colors-utils-prefix-color        : 'fc-' !default;
+$colors-utils-property-bg         : 'background-color' !default;
+$colors-utils-prefix-color        : 'fg-' !default;
 $colors-utils-prefix-bg           : 'bg-' !default;
 
 $font-types-prefix                : 'fs-' !default;

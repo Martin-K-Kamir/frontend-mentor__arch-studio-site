@@ -1,10 +1,14 @@
+@use '../abstracts/modules/math';
 
 .header {
+	position : relative;
+	z-index  : math.layer('header');
 
+	.header__container {
+		position : relative;
+	}
 
-	&__container {
-		position    : relative;
-		isolation   : isolate;
+	.header__content {
 		display     : flex;
 		align-items : center;
 
@@ -16,33 +20,65 @@
 	.navigation {
 		@media (width < $width-sm) {
 			position         : absolute;
-			inset            : 100% 0 auto 0;
-			z-index : -1;
-			background-color : hsl(var(--clr-neutral-3));
-			transition       : transform 200ms ease-in-out;
+			inset            : auto 0 0 var(--body-padding);
+			z-index          : -1;
+			background-color : hsl(var(--clr-neutral-2));
+		}
+	}
+
+	.navigation:where([data-open="false"], [data-open="true"]) {
+		@media (width < $width-sm) {
+			animation-duration        : 200ms;
+			animation-timing-function : ease-in-out;
+			animation-fill-mode       : forwards;
 		}
 	}
 
 	.navigation[data-open="false"] {
 		@media (width < $width-sm) {
-			visibility : hidden;
-			opacity    : 0;
-			transform  : translateY(-100%);
+			animation-name : navigation-close;
 		}
 	}
 
 	.navigation[data-open="true"] {
 		@media (width < $width-sm) {
-			visibility : visible;
-			opacity    : 1;
-			transform  : translateY(0);
+			animation-name : navigation-open;
 		}
 	}
 
 	.btn-hamburger {
+		translate : 25% 0;
+
 		@media (width >= $width-sm) {
 			display : none;
 		}
 	}
 
+	@keyframes navigation-close {
+		from {
+			visibility : visible;
+			opacity    : 1;
+			transform  : translateY(100%);
+		}
+		to {
+			visibility : hidden;
+			opacity    : 0;
+			transform  : translateY(0);
+		}
+	}
+
+	@keyframes navigation-open {
+		from {
+			visibility : hidden;
+			opacity    : 0;
+			transform  : translateY(0);
+		}
+
+		to {
+			visibility : visible;
+			opacity    : 1;
+			transform  : translateY(100%);
+		}
+	}
 }
+
