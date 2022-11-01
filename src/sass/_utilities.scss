@@ -23,10 +23,14 @@
 					'src' : (
 							generate.$font-weights,
 							generate.$line-heights,
-							generate.$text-align,
-							generate.$flex-align,
-							generate.$flex-justify,
-							generate.$flex-direction,
+							generate.$measures,
+							generate.$displays,
+							generate.$text-aligns,
+							generate.$aligns,
+							generate.$justifys,
+							generate.$self-aligns,
+							generate.$self-justifys,
+							generate.$directions,
 					)
 			),)
 	);

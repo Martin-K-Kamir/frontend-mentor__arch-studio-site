@@ -1,7 +1,7 @@
 @use '../abstracts/modules/math';
 
 .logo {
-	--_fg : var(--clr-neutral-6, );
+	--_fg : var(--clr-neutral-6, #000);
 
 	color : hsl(var(--_fg));
 	fill  : CurrentColor;

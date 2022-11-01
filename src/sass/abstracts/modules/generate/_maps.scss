@@ -92,7 +92,7 @@ $font-weights    : (
 		'fw-4' : 700,
 ) !default;
 
-$text-align    : (
+$text-aligns     : (
 		'utils' : 'class',
 		'utils-property' : 'text-align',
 		'breakpoints' : auto,
@@ -101,7 +101,7 @@ $text-align    : (
 		'text-start' : 'start',
 ) !default;
 
-$flex-align    : (
+$aligns          : (
 		'utils' : 'class',
 		'utils-property' : 'align-items',
 		'breakpoints' : auto,
@@ -110,7 +110,37 @@ $flex-align    : (
 		'align-start' : 'flex-start',
 ) !default;
 
-$flex-direction    : (
+$justifys        : (
+		'utils' : 'class',
+		'utils-property' : 'justify-items',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'justify-center' : 'center',
+		'justify-start' : 'start',
+		'justify-between' : 'space-between',
+) !default;
+
+$self-aligns     : (
+		'utils' : 'class',
+		'utils-property' : 'align-self',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'self-align-center' : 'center',
+		'self-align-start' : 'flex-start',
+		'self-align-end' : 'flex-end',
+) !default;
+
+$self-justifys   : (
+		'utils' : 'class',
+		'utils-property' : 'justify-self',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'self-justify-center' : 'center',
+		'self-justify-start' : 'start',
+		'self-justify-end' : 'end',
+) !default;
+
+$directions      : (
 		'utils' : 'class',
 		'utils-property' : 'flex-direction',
 		'breakpoints' : auto,
@@ -119,14 +149,12 @@ $flex-direction    : (
 		'direction-row' : 'row',
 ) !default;
 
-$flex-justify    : (
+$displays        : (
 		'utils' : 'class',
-		'utils-property' : 'justify-items',
+		'utils-property' : 'display',
 		'breakpoints' : auto,
 		'break-at' : 'both',
-		'justify-center' : 'center',
-		'justify-start' : 'start',
-		'justify-between' : 'space-between',
+		'display-none' : 'none',
 ) !default;
 
 $letter-spacings : (
@@ -151,12 +179,13 @@ $line-heights    : (
 
 $measures        : (
 		'utils' : 'both',
-		'property' : '--measure',
+		'utils-property' : '--measure',
 		'measure-1' : 10ch,
 		'measure-2' : 30ch,
 		'measure-4' : 50ch,
 		'measure-5' : 60ch,
 		'measure-6' : 72ch,
+		'measure-7' : 82ch,
 ) !default;
 
 $radius          : (

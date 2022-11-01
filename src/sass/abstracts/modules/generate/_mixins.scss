@@ -637,7 +637,6 @@
 		}
 	}
 
-
 	@each $map in $src {
 		@if map-has-key($map, 'null') {
 			$map : map-remove($map, 'null');

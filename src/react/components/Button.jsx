@@ -17,9 +17,11 @@ export default function Button(props) {
 
 	return (
 		<>
-			{props.href ? <a href={props.href} rel={props.newTab ? 'noreferrer' : ''} target={props.newTab ? '_blank' : ''} aria-label={props.label} className="btn" data-type={props.type}>{renderContent(props)}</a>
-			:
-			<button aria-label={props.label} className="btn" datatype={props.type}>{renderContent(props)}</button>}
+			{props.href ?
+				<a href={props.href} rel="noreferrer" target={props.newTab ? '_blank' : '_self'} aria-label={props.label}
+				   className={props.utils ? `[ btn ] [ ${props.utils} ]` : 'btn'} data-type={props.type}>{renderContent(props)}</a>
+				:
+				<button aria-label={props.label} className={props.utils ? `[ btn ] [ ${props.utils} ]` : 'btn'} datatype={props.type}>{renderContent(props)}</button>}
 		</>
 	);
 }

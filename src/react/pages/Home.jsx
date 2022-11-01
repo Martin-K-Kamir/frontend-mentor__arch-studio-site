@@ -3,9 +3,8 @@ import Hero from "../components/Hero";
 import Cover from "../components/Cover";
 import Button from "../components/Button";
 import PageLabel from "../components/PageLabel";
-import Cards from "../components/Cards";
-import data from "../../data";
 import Image from "../components/Image";
+import CardProject from "../components/CardProject";
 
 export default function Home() {
 
@@ -45,12 +44,22 @@ export default function Home() {
 
 			<section>
 				<div className="wrapper stack">
-					<div className="even-columns">
+					<div className="even-columns align-center">
 						<h2 className="title-2">Featured</h2>
-						<Button href="/portfolio" content="See All"/>
+						<Button href="/portfolio" utils="self-justify-end display-none//below-md" content="See All"/>
 					</div>
-					<Cards type="project" data={[data.portfolio[0], data.portfolio[1], data.portfolio[2]]}/>
-					<Button href="/portfolio" content="See All"/>
+					<ul className="switcher measure-7" role="list">
+						<li>
+							<CardProject image={{dir : 'home', name : 'hero-seraph', widths : [375, 573, 1110]}} title="Seraph Station" date="September 2019" href="/coming-soon"/>
+						</li>
+						<li>
+							<CardProject image={{dir : 'home', name : 'hero-federal', widths : [375, 573, 1110]}} title="Federal II Tower" date="March 2017" href="/coming-soon"/>
+						</li>
+						<li>
+							<CardProject image={{dir : 'home', name : 'hero-trinity', widths : [375, 573, 1110]}} title="Trinity Bank Tower" date="September 2010" href="/coming-soon"/>
+						</li>
+					</ul>
+					<Button href="/portfolio" utils="display-none//above-md" type="full" content="See All"/>
 				</div>
 			</section>
 		</main>

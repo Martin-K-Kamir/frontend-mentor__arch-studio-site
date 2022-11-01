@@ -2,7 +2,7 @@
 .icon {
 	--_icon-size : var(--icon-size, 1rem);
 
-	color       : hsl(var(--_fg));
+	color       : hsl(var(--_fg, inherit));
 	fill        : CurrentColor;
 	inline-size : var(--_icon-size);
 	block-size  : var(--_icon-size);

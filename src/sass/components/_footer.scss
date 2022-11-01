@@ -1,6 +1,6 @@
 
 .footer {
-	--icon-size: 1.25rem;
+	--icon-size   : 1.785rem;
 
 	margin-inline : auto;
 
@@ -9,9 +9,13 @@
 	}
 
 	.footer__container {
-		--_slice       : 9.9rem;
+		--_slice : 9.9rem;
 
-		position       : relative;
+		position : relative;
+
+		@media (width < $width-md) {
+			padding-inline : var(--body-padding);
+		}
 
 		@media (width >= $width-md) {
 			max-inline-size : calc(100% - var(--_slice));

@@ -54,6 +54,13 @@
 	padding : 0;
 }
 
+.btn[data-type="full"] {
+	@media (width < $width-md) {
+		inline-size     : 100%;
+		justify-content : center;
+	}
+}
+
 .btn-hamburger {
 	--_fg            : var(--clr-neutral-6);
 
