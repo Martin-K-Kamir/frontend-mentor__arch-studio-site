@@ -4,8 +4,8 @@
 }
 
 .btn {
-	--_fg            : var(--clr-neutral-1);
-	--_bg            : var(--clr-neutral-6);
+	--_fg            : var(--fg, var(--clr-neutral-1));
+	--_bg            : var(--bg, var(--clr-neutral-6));
 
 	cursor           : pointer;
 	display          : inline-flex;
@@ -34,10 +34,9 @@
 	}
 
 	.icon {
-		flex-shrink: 0;
+		--icon-size : 1em;
+		flex-shrink : 0;
 		transform   : translateY(-0.1em);
-		inline-size : 1em;
-		block-size  : 1em;
 		transition  : transform var(--transition-duration) var(--transition-timing);
 	}
 

@@ -1,5 +1,7 @@
 
 .footer {
+	--icon-size: 1.25rem;
+
 	margin-inline : auto;
 
 	@media (width >= $width-lg) {
@@ -10,13 +12,9 @@
 		--_slice       : 9.9rem;
 
 		position       : relative;
-		display        : flex;
-		flex-direction : column;
-		align-items    : center;
 
 		@media (width >= $width-md) {
 			max-inline-size : calc(100% - var(--_slice));
-			flex-direction  : row;
 		}
 
 		@media (width >= $width-lg) {

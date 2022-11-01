@@ -10,7 +10,7 @@ export default function CardMember(props) {
 			{props.socials && <div>
 				{props.socials.map((social, index) => (
 					<a href={social.href} key={`icon${index}`} aria-label={social.icon}>
-						<Icon name={social.icon}/>
+						<Icon type={social.icon}/>
 					</a>
 				))}
 			</div>}

@@ -23,6 +23,10 @@
 					'src' : (
 							generate.$font-weights,
 							generate.$line-heights,
+							generate.$text-align,
+							generate.$flex-align,
+							generate.$flex-justify,
+							generate.$flex-direction,
 					)
 			),)
 	);
@@ -47,4 +51,8 @@
 	white-space : nowrap;
 	clip        : rect(0, 0, 0, 0);
 	border      : 0;
+}
+
+:where([class*="align"], [class*="direction"], [class*="justify"]) {
+	display : flex;
 }

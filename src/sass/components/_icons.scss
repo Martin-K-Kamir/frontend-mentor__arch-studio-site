@@ -1,5 +1,9 @@
 
 .icon {
-	width : 2rem;
-	height: 2rem;
+	--_icon-size : var(--icon-size, 1rem);
+
+	color       : hsl(var(--_fg));
+	fill        : CurrentColor;
+	inline-size : var(--_icon-size);
+	block-size  : var(--_icon-size);
 }

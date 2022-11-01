@@ -20,7 +20,7 @@ export default function Home() {
 
 			<section>
 				<div className="wrapper">
-					<div className="columns">
+					<div className="even-columns">
 						<div className="stack">
 							<p className="title-4">Welcome</p>
 							<h2 className="title-2">Welcome to Arch Studio</h2>
@@ -45,7 +45,7 @@ export default function Home() {
 
 			<section>
 				<div className="wrapper stack">
-					<div className="columns">
+					<div className="even-columns">
 						<h2 className="title-2">Featured</h2>
 						<Button href="/portfolio" content="See All"/>
 					</div>

@@ -2,8 +2,15 @@
 /// Variables are set to !default so they can be overridden.
 $suffix                           : 'numeric' !default;
 $utils                            : true !default;
-$screen-min                       : 22.5em !default;
-$screen-max                       : 90em !default;
+$width-xxs                        : 20.625em !default;
+$width-xs                         : 22.5em !default;
+$width-sm                         : 30em !default;
+$width-md                         : 48em !default;
+$width-lg                         : 64em !default;
+$width-xl                         : 90em !default;
+$width-xxl                        : 120em !default;
+$screen-min                       : $width-xs !default;
+$screen-max                       : $width-xl !default;
 
 $colors-format                    : 'hsl' !default;
 $colors-prefix                    : 'clr-' !default;

@@ -18,7 +18,7 @@ export default function About() {
 
 			<section>
 				<div className="wrapper">
-					<div className="columns">
+					<div className="even-columns">
 						<div className="stack">
 							<h2 className="title-2">Our Heritage</h2>
 							<p className="desc">

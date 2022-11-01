@@ -1,24 +1,12 @@
 
 .navigation {
-	ul {
-		display : flex;
+	font-size : var(--fs-2);
+	color     : hsl(var(--clr-neutral-5));
 
+	.header & {
 		@media (width < $width-md) {
-			flex-direction : column;
+			font-size : var(--fs-3);
+			color     : hsl(var(--clr-neutral-6));
 		}
 	}
-
-	li {
-		font-weight : var(--fw-4);
-		color : hsl(var(--clr-neutral-5));
-
-		.header & {
-			@media (width < $width-md) {
-				font-size : var(--fs-3);
-				color : hsl(var(--clr-neutral-6));
-			}
-		}
-	}
-
-
 }

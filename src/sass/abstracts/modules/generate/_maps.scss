@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @use 'sass:math';
+@use 'variables' as *;
 
 $animations      : (
 		'animation-fade-in': fade-in 0.5s var(--ease-3),
@@ -83,12 +84,49 @@ $easings         : (
 ) !default;
 
 $font-weights    : (
-		'utils' : true,
+		'utils' : 'both',
 		'utils-property' : 'font-weight',
 		'fw-1' : 300,
 		'fw-2' : 400,
 		'fw-3' : 500,
 		'fw-4' : 700,
+) !default;
+
+$text-align    : (
+		'utils' : 'class',
+		'utils-property' : 'text-align',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'text-center' : 'center',
+		'text-start' : 'start',
+) !default;
+
+$flex-align    : (
+		'utils' : 'class',
+		'utils-property' : 'align-items',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'align-center' : 'center',
+		'align-start' : 'flex-start',
+) !default;
+
+$flex-direction    : (
+		'utils' : 'class',
+		'utils-property' : 'flex-direction',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'direction-column' : 'column',
+		'direction-row' : 'row',
+) !default;
+
+$flex-justify    : (
+		'utils' : 'class',
+		'utils-property' : 'justify-items',
+		'breakpoints' : auto,
+		'break-at' : 'both',
+		'justify-center' : 'center',
+		'justify-start' : 'start',
+		'justify-between' : 'space-between',
 ) !default;
 
 $letter-spacings : (
@@ -103,7 +141,7 @@ $letter-spacings : (
 ) !default;
 
 $line-heights    : (
-		'utils' : true,
+		'utils' : 'both',
 		'utils-property' : 'line-height',
 		'line-height-1' : 0.9,
 		'line-height-2' : 1.25,
@@ -112,7 +150,7 @@ $line-heights    : (
 ) !default;
 
 $measures        : (
-		'utils' : true,
+		'utils' : 'both',
 		'property' : '--measure',
 		'measure-1' : 10ch,
 		'measure-2' : 30ch,
@@ -149,19 +187,19 @@ $shadows         : (
 		'shadow-inner-5' : inset 0 2px 14px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 9%)),
 ) !default;
 
+$breakpoints     : (
+		'xxs': $width-xxs,
+		'xs': $width-xs,
+		'sm': $width-sm,
+		'md': $width-md,
+		'lg': $width-lg,
+		'xl': $width-xl,
+		'xxl': $width-xxl,
+) !default;
+
 //////////////////////
 //// Private maps ////
 //////////////////////
-$breakpoints     : (
-		'width-xxl': 120em,
-		'width-xl': 90em,
-		'width-lg': 64em,
-		'width-md': 48em,
-		'width-sm': 30em,
-		'width-xs': 22.5em,
-		'width-xxs': 20.625em,
-);
-
 $ratios          : (
 		'minor-second' : 1.067,
 		'major-second': 1.125,

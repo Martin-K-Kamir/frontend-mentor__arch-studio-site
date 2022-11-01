@@ -1,11 +1,14 @@
 @use '../abstracts/modules/math';
 
 .logo {
-	--_fg : var(--clr-neutral-6);
+	--_fg : var(--clr-neutral-6, );
+
+	color : hsl(var(--_fg));
+	fill  : CurrentColor;
 
 	svg {
 		inline-size : math.clamped(4.85rem, 6rem);
-		height : auto;
+		height      : auto;
 	}
 }
 
