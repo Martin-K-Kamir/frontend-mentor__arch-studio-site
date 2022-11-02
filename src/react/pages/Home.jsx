@@ -40,7 +40,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<Cover title="Small team, big ideas" button={{href: "/about-us", content: "About Us"}}/>
+			<Cover title="Small team, big ideas" button={{href: "/about-us", content: "About Us"}} image={{dir : 'home', name : 'small-team', widths : [375, 573, 1110]}}/>
 
 			<section>
 				<div className="wrapper stack">

@@ -1,5 +1,16 @@
 
 .wrapper {
-	inline-size   : min(100% - var(--body-padding) * 2, var(--body-size));
+	inline-size   : var(--body-sizing);
 	margin-inline : auto;
+}
+
+.wrapped {
+	--_padding : var(--padding, var(--body-padding));
+
+	padding-inline : var(--_padding);
+	margin-inline  : auto;
+
+	@media (width >= $width-md) {
+		inline-size : var(--body-sizing);
+	}
 }

@@ -1,7 +1,31 @@
 .cover {
+	display             : grid;
+	min-block-size      : 35rem;
+	grid-template-areas : "stack";
+	margin-inline       : auto;
 
-	display        : grid;
-	place-items    : center;
-	min-block-size : 35rem;
+	@media (width >= $width-md) {
+		inline-size : var(--body-sizing);
+	}
 
+	& > * {
+		grid-area : stack;
+	}
+
+	img {
+		object-fit  : cover;
+		inline-size : 100%;
+		block-size  : 100%;
+	}
+
+	.cover__content {
+		--_padding     : var(--padding, var(--body-padding));
+
+		padding-inline : var(--_padding);
+
+
+		@media (width >= $width-md) {
+			--_padding : var(--body-fluid-padding)
+		}
+	}
 }

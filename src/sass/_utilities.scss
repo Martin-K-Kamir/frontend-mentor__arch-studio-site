@@ -6,7 +6,7 @@
 			'colors' : (
 					'src' : ('neutral' : (hsl(225, 13%, 12%))),
 					'tints' : (32%, 47%, 80%, 94%, 100%),
-					'shades' : (70%),
+					'shades' : (30%),
 			),
 			'font-types' : (
 					'base' : 0.64rem,
@@ -36,14 +36,16 @@
 			),)
 	);
 
-	--ff-primary    : 'League Spartan', sans-serif;
-	--ff-body       : var(--ff-primary);
-	--ff-heading    : var(--ff-primary);
-	--outline-size  : max(1px, 0.08em);
-	--outline-style : solid;
-	--outline-color : currentColor;
-	--body-size     : 69.375em;
-	--body-padding  : 2em;
+	--ff-primary         : 'League Spartan', sans-serif;
+	--ff-body            : var(--ff-primary);
+	--ff-heading         : var(--ff-primary);
+	--outline-size       : max(1px, 0.08em);
+	--outline-style      : solid;
+	--outline-color      : currentColor;
+	--body-padding       : 2em;
+	--body-fluid-padding : #{math.clamped(2em, 11.875em, $width-md, $width-xl)};
+	--body-size          : 69.375em;
+	--body-sizing        : min(100% - var(--body-padding) * 2, var(--body-size));
 }
 
 .sr-only {

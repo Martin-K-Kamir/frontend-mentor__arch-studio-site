@@ -5,7 +5,7 @@
 	margin-inline : auto;
 
 	@media (width >= $width-lg) {
-		inline-size : min(100% - var(--body-padding) * 2, var(--body-size));
+		inline-size : var(--body-sizing);
 	}
 
 	.footer__container {
