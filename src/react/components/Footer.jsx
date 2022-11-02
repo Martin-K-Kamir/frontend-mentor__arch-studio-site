@@ -8,7 +8,7 @@ import Icon from "./Icon";
 export default function Footer() {
 	return (
 		<footer className="footer">
-			<div className="[ footer__container ] [ switch align-center bg-neutral-2 ]">
+			<div className="[ footer__container ] [ switch ] [ align-center bg-neutral-2 ]">
 				<Link to="/" aria-label="homepage"><Logo type="box"/></Link>
 				<div className="[ footer__lists ] [ direction-column align-center//below-md text-center//below-md ]">
 					<Navigation label="footer"/>

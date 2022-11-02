@@ -48,7 +48,7 @@ export default function Home() {
 						<h2 className="title-2">Featured</h2>
 						<Button href="/portfolio" utils="self-justify-end display-none//below-md" content="See All"/>
 					</div>
-					<ul className="switcher measure-7" role="list">
+					<ul className="[ switcher ] [ measure-7 ]" role="list">
 						<li>
 							<CardProject image={{dir : 'home', name : 'hero-seraph', widths : [375, 573, 1110]}} title="Seraph Station" date="September 2019" href="/coming-soon"/>
 						</li>

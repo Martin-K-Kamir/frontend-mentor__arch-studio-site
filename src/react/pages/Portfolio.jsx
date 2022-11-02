@@ -9,7 +9,7 @@ export default function Portfolio() {
 		<main>
 			<PageLabel page="portfolio"/>
 			<div className="wrapper">
-				<Cards type="project" data={data.portfolio}/>
+				<Cards type="project" data={data.portfolio} utils="measure-2"/>
 			</div>
 		</main>
 	);

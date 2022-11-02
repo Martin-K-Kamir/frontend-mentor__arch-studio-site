@@ -1,6 +1,6 @@
 // Default variables
-$space          : 0;
-$measure        : 0;
+$space          : 1rem;
+$measure        : 55ch;
 
 // Screen breakpoints
 $width-xxs      : 20.625em;
@@ -10,7 +10,3 @@ $width-md       : 48em;
 $width-lg       : 64em;
 $width-xl       : 90em;
 $width-xxl      : 120em;
-
-// Lists
-$list-of-layers : ('base');
-

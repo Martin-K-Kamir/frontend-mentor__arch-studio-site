@@ -5,7 +5,7 @@
 	gap       : var(--space, 1rem);
 
 	& > * {
-		flex-basis : calc((var(--measure, 60ch) - 100%) * 999);
+		flex-basis : calc((var(--measure, #{$measure}) - 100%) * 999);
 		flex-grow  : 1;
 	}
 }

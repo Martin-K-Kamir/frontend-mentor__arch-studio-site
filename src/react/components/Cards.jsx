@@ -26,7 +26,7 @@ export default function Cards(props) {
 	}
 
 	return (
-		<ul className="grid" role="list">
+		<ul className={props.utils ? `[ grid ] [ ${props.utils} ]` : 'grid'} role="list">
 			{props.data.map((card, index) => (
 				<li key={`card${index}`}>
 					{renderCard(card)}

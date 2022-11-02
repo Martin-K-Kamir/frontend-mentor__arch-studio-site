@@ -1,5 +1,7 @@
 .grid {
+	--_space              : var(--space, var(--space-1, #{$space}));
+
 	display               : grid;
-	grid-gap              : 1rem;
-	grid-template-columns : repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+	gap                   : var(--_space);
+	grid-template-columns : repeat(auto-fit, minmax(min(var(--measure, #{$measure}), 100%), 1fr));
 }
