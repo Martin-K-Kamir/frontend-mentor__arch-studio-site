@@ -1,8 +1,9 @@
 
 .icon {
 	--_icon-size : var(--icon-size, 1rem);
+	--_icon-fg : var(--icon-fg, var(--_fg, inherit));
 
-	color        : hsl(var(--_fg, inherit));
+	color        : hsl(var(--_icon-fg));
 	fill         : CurrentColor;
 	inline-size  : var(--_icon-size);
 	block-size   : var(--_icon-size);

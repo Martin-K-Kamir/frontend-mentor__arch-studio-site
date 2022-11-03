@@ -1,10 +1,10 @@
 
 .card-project {
-	--_min-block-size   : 15rem;
-	--_max-block-size   : 40vw;
+	--_min-block-size : 15rem;
+	--_max-block-size : 40vw;
 
-	min-block-size      : var(--_min-block-size);
-	max-block-size      : var(--_max-block-size);
+	min-block-size    : var(--_min-block-size);
+	max-block-size    : var(--_max-block-size);
 
 	img {
 		aspect-ratio   : 1 / 1.3;
@@ -12,3 +12,58 @@
 		max-block-size : var(--_max-block-size);
 	}
 }
+
+.card-member {
+	container-type : inline-size;
+
+	.card-member__image {
+		position : relative;
+
+		@media (hover : hover) {
+			&:hover .card-member__socials,
+			&:focus-visible .card-member__socials {
+				opacity : 1;
+			}
+		}
+	}
+
+	.card-member__image .card-member__socials {
+		--icon-size      : 2.25rem;
+		--icon-fg        : var(--clr-neutral-1);
+
+		opacity          : 0;
+		position         : absolute;
+		inset            : 0;
+		justify-content  : center;
+		align-items      : center;
+		background-color : hsla(var(--clr-neutral-7), 0.75);
+
+
+		@media (hover : none) {
+			display : none;
+		}
+	}
+
+	.card-member__content {
+		@media (hover : none) {
+			@container (width > 17em) {
+				display         : flex;
+				justify-content : space-between;
+			}
+		}
+	}
+
+	.card-member__content .card-member__socials {
+		--icon-size : 1.65rem;
+
+		@media (hover : hover) {
+			display : none;
+		}
+	}
+
+
+	.card-member__socials {
+		display : flex;
+	}
+}
+
