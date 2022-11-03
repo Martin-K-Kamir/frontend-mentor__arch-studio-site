@@ -5,12 +5,19 @@
 }
 
 .wrapped {
-	--_padding : var(--padding, var(--body-padding));
-
-	padding-inline : var(--_padding);
-	margin-inline  : auto;
+	margin-inline : auto;
 
 	@media (width >= $width-md) {
 		inline-size : var(--body-sizing);
+	}
+
+	.wrapper {
+		inline-size    : revert;
+		margin-inline  : revert;
+		padding-inline : var(--body-padding);
+
+		@media (width >= $width-md) {
+			padding-inline-start : var(--body-fluid-padding)
+		}
 	}
 }

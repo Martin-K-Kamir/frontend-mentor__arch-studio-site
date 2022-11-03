@@ -4,15 +4,17 @@
 }
 
 .btn {
-	--_fg            : var(--fg, var(--clr-neutral-1));
-	--_bg            : var(--bg, var(--clr-neutral-6));
+	--_fg            : var(--fg, var(--clr-neutral-1, (0, 0%, 100%)));
+	--_bg            : var(--bg, var(--clr-neutral-6, (0, 0%, 0%)));
+	--_fs            : var(--fs, var(--fs-2, 1.6rem));
+	--_fw            : var(--fw, var(--fw-4, 500));
 
 	cursor           : pointer;
 	display          : inline-flex;
 	align-items      : center;
 	padding          : 1.5em 2em;
-	font-size        : var(--fs-2);
-	font-weight      : var(--fw-4);
+	font-size        : var(--_fs);
+	font-weight      : var(--_fw);
 	letter-spacing   : 0.025em;
 	line-height      : var(--line-height-1);
 	color            : hsl(var(--_fg));
@@ -21,29 +23,30 @@
 	outline          : none;
 	transition       : background-color var(--transition-duration) var(--transition-timing);
 
-	&:where(:hover, :focus-visible) {
-		--_bg : var(--clr-neutral-5);
+	&:has(.icon) {
+		gap : 1ch;
 	}
 
 	&:active {
 		--_bg : var(--clr-neutral-3);
 	}
 
-	&:has(.icon) {
-		gap : 1ch;
+	@media (hover : hover) {
+		&:where(:hover, :focus-visible) {
+			--_bg : var(--clr-neutral-5);
+		}
+
+		&:where(:hover, :focus-visible) .icon[data-rear="true"][data-type*="right"] {
+			transform : translate(0.15em, -0.1em);
+		}
 	}
 
 	.icon {
 		--icon-size : 1em;
-		flex-shrink : 0;
+
 		transform   : translateY(-0.1em);
 		transition  : transform var(--transition-duration) var(--transition-timing);
 	}
-
-	&:where(:hover, :focus-visible) .icon[data-rear="true"] {
-		transform : translate(0.15em, -0.1em);
-	}
-
 }
 
 
@@ -62,7 +65,7 @@
 }
 
 .btn-hamburger {
-	--_fg            : var(--clr-neutral-6);
+	--_fg            : var(--fg, var(--clr-neutral-6, (0, 0%, 0%)));
 
 	cursor           : pointer;
 	position         : relative;

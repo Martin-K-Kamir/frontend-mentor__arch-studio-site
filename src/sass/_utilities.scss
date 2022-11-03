@@ -60,6 +60,6 @@
 	border      : 0;
 }
 
-:where([class*="align"], [class*="direction"], [class*="justify"]) {
+:where([class^="align"], [class*="direction"], [class^="justify"]) {
 	display : flex;
 }

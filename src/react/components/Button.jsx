@@ -2,7 +2,7 @@ import Icon from "./Icon";
 import React, {useState} from "react";
 
 export default function Button(props) {
-	const [iconType, setIconType] = useState(props.icon?.type ? props.icon.type : 'arrow');
+	const [iconType, setIconType] = useState(props.icon?.type ? props.icon.type : 'arrow-right');
 
 	function renderContent(props) {
 		return (

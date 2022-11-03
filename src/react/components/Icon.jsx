@@ -1,7 +1,7 @@
 export default function Icon(props) {
 	function renderIcon() {
 		switch (props.type) {
-			case "arrow":
+			case "arrow-right":
 				return (
 					<svg className="icon" data-type={props.type} data-lead={props.lead} data-rear={props.rear} aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
 					     viewBox="0 0 26 20">

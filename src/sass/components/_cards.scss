@@ -3,25 +3,12 @@
 	--_min-block-size   : 15rem;
 	--_max-block-size   : 40vw;
 
-	display             : grid;
-	grid-template-areas : "stack";
 	min-block-size      : var(--_min-block-size);
 	max-block-size      : var(--_max-block-size);
 
-	& > * {
-		grid-area : stack;
-	}
-
-	&__content {
-		align-self : end;
-	}
-
 	img {
 		aspect-ratio   : 1 / 1.3;
-		object-fit     : cover;
 		min-block-size : var(--_min-block-size);
 		max-block-size : var(--_max-block-size);
-		inline-size    : 100%;
-		block-size     : 100%;
 	}
 }

@@ -44,7 +44,7 @@ export default function Home() {
 
 			<section>
 				<div className="wrapper stack">
-					<div className="even-columns align-center">
+					<div className="[ even-columns ] [ align-center ]">
 						<h2 className="title-2">Featured</h2>
 						<Button href="/portfolio" utils="self-justify-end display-none//below-md" content="See All"/>
 					</div>

@@ -107,7 +107,7 @@ $aligns          : (
 		'breakpoints' : auto,
 		'break-at' : 'both',
 		'align-center' : 'center',
-		'align-start' : 'flex-start',
+		'align-start' : 'start',
 ) !default;
 
 $justifys        : (
@@ -126,8 +126,8 @@ $self-aligns     : (
 		'breakpoints' : auto,
 		'break-at' : 'both',
 		'self-align-center' : 'center',
-		'self-align-start' : 'flex-start',
-		'self-align-end' : 'flex-end',
+		'self-align-start' : 'start',
+		'self-align-end' : 'end',
 ) !default;
 
 $self-justifys   : (
