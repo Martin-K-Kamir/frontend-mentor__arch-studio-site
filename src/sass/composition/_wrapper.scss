@@ -17,7 +17,7 @@
 		padding-inline : var(--body-padding);
 
 		@media (width >= $width-md) {
-			padding-inline-start : var(--body-fluid-padding)
+			padding-inline-start : var(--body-fluid-padding);
 		}
 	}
 }

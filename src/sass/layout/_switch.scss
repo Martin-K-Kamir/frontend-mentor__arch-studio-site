@@ -1,8 +1,0 @@
-.switch {
-	display        : flex;
-	flex-direction : column;
-
-	@media (width >= $width-md) {
-		flex-direction : row;
-	}
-}

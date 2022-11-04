@@ -1,29 +1,28 @@
 @import 'abstracts/variables';
 
-@import 'base/reset';
-@import 'base/base';
-@import 'base/typography';
+@import 'global/reset';
+@import 'global/base';
+@import 'global/typography';
 
-@import 'components/cards';
-@import 'components/buttons';
-@import 'components/icons';
-@import 'components/tabs';
-@import 'components/slider';
-@import 'components/header';
-@import 'components/footer';
-@import 'components/logo';
-@import 'components/navigation';
+@import 'block/cards';
+@import 'block/buttons';
+@import 'block/icons';
+@import 'block/tabs';
+@import 'block/slider';
+@import 'block/header';
+@import 'block/footer';
+@import 'block/logo';
+@import 'block/navigation';
+@import 'block/cover';
 
-@import 'components/cover';
-
-@import 'layout/wrapper';
-@import 'layout/cluster';
-@import 'layout/grid';
-@import 'layout/switcher';
-@import 'layout/switch';
-@import 'layout/stack';
-@import 'layout/stacked';
-@import 'layout/even-columns';
+@import 'composition/wrapper';
+@import 'composition/cluster';
+@import 'composition/grid';
+@import 'composition/switcher';
+@import 'composition/switch';
+@import 'composition/stack';
+@import 'composition/stacked';
+@import 'composition/even-columns';
 
 @import 'utilities';
 

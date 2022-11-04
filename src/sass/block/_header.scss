@@ -4,11 +4,11 @@
 	position : relative;
 	z-index  : math.layer('header');
 
-	.header__container {
+	&__container {
 		position : relative;
 	}
 
-	.header__content {
+	&__content {
 		display     : flex;
 		align-items : center;
 

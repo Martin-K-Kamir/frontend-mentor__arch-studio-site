@@ -47,22 +47,22 @@
 		transform   : translateY(-0.1em);
 		transition  : transform var(--transition-duration) var(--transition-timing);
 	}
-}
 
+	&[data-type="ghost"] {
+		--_fg   : var(--clr-neutral-6);
+		--_bg   : transparent;
 
-.btn[data-type="ghost"] {
-	--_fg   : var(--clr-neutral-6);
-	--_bg   : transparent;
+		padding : 0;
+	}
 
-	padding : 0;
-}
-
-.btn[data-type="full"] {
-	@media (width < $width-md) {
-		inline-size     : 100%;
-		justify-content : center;
+	&[data-type="full"] {
+		@media (width < $width-md) {
+			inline-size     : 100%;
+			justify-content : center;
+		}
 	}
 }
+
 
 .btn-hamburger {
 	--_fg            : var(--fg, var(--clr-neutral-6, (0, 0%, 0%)));

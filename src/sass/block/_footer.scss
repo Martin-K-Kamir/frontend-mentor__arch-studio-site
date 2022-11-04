@@ -8,7 +8,7 @@
 		inline-size : var(--body-sizing);
 	}
 
-	.footer__container {
+	&__container {
 		--_slice : 9.9rem;
 
 		position : relative;

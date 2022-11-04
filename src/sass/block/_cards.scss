@@ -13,21 +13,22 @@
 	}
 }
 
+
+
 .card-member {
-	container-type : inline-size;
+	container-type  : inline-size;
+	max-inline-size : 350px;
 
-	.card-member__image {
-		position : relative;
-
-		@media (hover : hover) {
-			&:hover .card-member__socials,
-			&:focus-visible .card-member__socials {
-				opacity : 1;
-			}
-		}
+	@media (width < $width-md) {
+		margin-inline: auto;
 	}
 
-	.card-member__image .card-member__socials {
+
+	&__image {
+		position : relative;
+	}
+
+	&__image &__socials {
 		--icon-size      : 2.25rem;
 		--icon-fg        : var(--clr-neutral-1);
 
@@ -37,14 +38,25 @@
 		justify-content  : center;
 		align-items      : center;
 		background-color : hsla(var(--clr-neutral-7), 0.75);
-
+		transition       : opacity 250ms ease-in-out;
 
 		@media (hover : none) {
 			display : none;
 		}
 	}
 
-	.card-member__content {
+	&__image .icon {
+		transform  : translateY(50%);
+		transition : transform 250ms ease-in-out;
+	}
+
+	&__image:where(:hover, :focus-visible) &__socials,
+	&__image:where(:hover, :focus-visible) .icon {
+		opacity   : 1;
+		transform : translateY(0);
+	}
+
+	&__content {
 		@media (hover : none) {
 			@container (width > 17em) {
 				display         : flex;
@@ -53,7 +65,7 @@
 		}
 	}
 
-	.card-member__content .card-member__socials {
+	&__content &__socials {
 		--icon-size : 1.65rem;
 
 		@media (hover : hover) {
@@ -61,8 +73,7 @@
 		}
 	}
 
-
-	.card-member__socials {
+	&__socials {
 		display : flex;
 	}
 }

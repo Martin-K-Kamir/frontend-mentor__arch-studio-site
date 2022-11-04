@@ -40,9 +40,9 @@ export default function About() {
 
 			<section>
 				<div className="wrapper">
-					<div className="switcher">
+					<div className="switch">
 						<h2 className="title-2">The Leaders</h2>
-						<Cards type="member" data={data.members}/>
+						<Cards type="member" utils="measure-1" data={data.members}/>
 					</div>
 				</div>
 			</section>
