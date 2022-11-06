@@ -1,73 +1,73 @@
 export default {
 	portfolio: [
 		{
-			image: {dir: 'portfolio', name: 'seraph', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'seraph', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Seraph Station',
 			date: 'September 2019',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'eebox', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'eebox', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Eebox Building',
 			date: 'August 2017',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'federal', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'federal', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Federal II Tower',
 			date: 'March 2017',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'del-sol', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'del-sol', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Project Del Sol',
 			date: 'January 2016',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'prototype', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'prototype', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Le Prototype',
 			date: 'October 2015',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: '228b', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: '228b', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: '228B Tower',
 			date: 'April 2015',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'edelweiss', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'edelweiss', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Grand Edelweiss Hotel',
 			date: 'December 2013',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'netcry', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'netcry', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Netcry Tower',
 			date: 'August 2012',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'hypers', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'hypers', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Hypers',
 			date: 'January 2012',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'sxiv', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'sxiv', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'SXIV Tower',
 			date: 'March 2011',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'trinity', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'trinity', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Trinity Bank Tower',
 			date: 'September 2010',
 			href: '/coming-soon'
 		},
 		{
-			image: {dir: 'portfolio', name: 'paramour', widths: [311, 350, 573]},
+			image: {dir: 'portfolio', name: 'paramour', widths: [311, 350, 573], sizes: '(min-width: 39.375em) 21.875em, 100vw'},
 			title: 'Project Paramour',
 			date: 'February 2008',
 			href: '/coming-soon'
@@ -118,8 +118,8 @@ export default {
 			phone: '123-456-3451',
 			address: '1892  Chenoweth Drive TN',
 			href: 'https://www.google.cz/maps/place/Knoxville,+Tennessee,+Spojen%C3%A9+st%C3%A1ty+americk%C3%A9/@35.9584416,-83.9951222,12z/data=!3m1!4b1!4m5!3m4!1s0x885c162246ce42a9:0x7bea92dac4f534c5!8m2!3d35.9606398!4d-83.9207411?hl=cs&authuser=0',
-			lat: 35.9584416,
-			lng: -83.9951222,
+			lat: 33.044016453329306,
+			lng: -97.05828187105448,
 		},
 		{
 			title: 'Office II',
@@ -127,8 +127,8 @@ export default {
 			phone: '832-123-4321',
 			address: '3399  Wines Lane TX',
 			href: 'https://www.google.cz/maps/place/Dallas,+Texas,+Spojen%C3%A9+st%C3%A1ty+americk%C3%A9/@32.8205865,-96.871636,11z/data=!3m1!4b1!4m5!3m4!1s0x864c19f77b45974b:0xb9ec9ba4f647678f!8m2!3d32.7768834!4d-96.7964172?hl=cs&authuser=0/@35.9524146,-83.9937486,17z/data=!3m1!4b1!4m5!3m4!1s0x885c3cc65e3c42c9:0xbf48aa2d7cf5ebad!8m2!3d35.9524146!4d-83.9915599',
-			lat: 32.8205865,
-			lng: -96.871636,
+			lat: 36.423216457620775,
+			lng: -86.73279528279572,
 		},
 	]
 }

@@ -3,6 +3,7 @@
 @import 'global/reset';
 @import 'global/base';
 @import 'global/typography';
+@import 'global/form';
 
 @import 'block/cards';
 @import 'block/buttons';
@@ -14,6 +15,7 @@
 @import 'block/logo';
 @import 'block/navigation';
 @import 'block/cover';
+@import 'block/map';
 
 @import 'composition/wrapper';
 @import 'composition/cluster';
@@ -25,8 +27,3 @@
 @import 'composition/even-columns';
 
 @import 'utilities';
-
-.leaflet-container {
-	width : 100vw;
-	height : 40rem;
-}

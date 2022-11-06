@@ -40,9 +40,9 @@ export default function About() {
 
 			<section>
 				<div className="wrapper">
-					<div className="switch">
+					<div className="direction-column//below-lg">
 						<h2 className="title-2">The Leaders</h2>
-						<Cards type="member" utils="measure-1" data={data.members}/>
+						<Cards type="member" utils="measure-2" data={data.members}/>
 					</div>
 				</div>
 			</section>

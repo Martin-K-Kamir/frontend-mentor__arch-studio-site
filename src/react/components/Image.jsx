@@ -1,9 +1,12 @@
 export default function Image(props) {
+
+	console.log(props)
+
 	return (
 		<picture className={props.classes}>
-			{props.widths && <source srcSet={`${props.widths.map(width => (
+			{props.widths && <source sizes={props.sizes ? props.sizes : ''} srcSet={`${props.widths.map(width => (
 						`assets/images/${props.dir}/${props.name}-${width}.webp ${width}w,
-						assets/images/${props.dir}/${props.name}-${width}.jpg ${width}w,`
+						assets/images/${props.dir}/${props.name}-${width}.jpg ${width}w`
 					))}`}/>
 			}
 

@@ -8,11 +8,11 @@ import Icon from "./Icon";
 export default function Footer() {
 	return (
 		<footer className="footer">
-			<div className="[ footer__container ] [ switch ] [ align-center bg-neutral-2 ]">
+			<div className="[ footer__container ] [ bg-neutral-2 align-center direction-column//below-md ]">
 				<Link to="/" aria-label="homepage"><Logo type="box"/></Link>
 				<div className="[ footer__lists ] [ direction-column align-center//below-md text-center//below-md ]">
 					<Navigation label="footer"/>
-					<p className="fs-1 fg-neutral-5">Challenge by <a href="https://www.frontendmentor.io/home">Frontend Mentor</a>. Coded by Martin Kamír.</p>
+					<p className="fs-1 fg-neutral-4">Challenge by <a href="https://www.frontendmentor.io/home">Frontend Mentor</a>. Coded by Martin Kamír.</p>
 					<ul className="cluster" role="list">
 						<li>
 							<a rel="noreferrer" target="_blank" href="https://martinkamir.com/" aria-label="author's website">

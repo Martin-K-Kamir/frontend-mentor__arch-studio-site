@@ -1,0 +1,6 @@
+@use '../abstracts/modules/math';
+
+.leaflet-container {
+	inline-size : 100%;
+	block-size  : math.clamped(23rem, 35rem, $width-sm, $width-md);
+}

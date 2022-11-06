@@ -14,6 +14,6 @@ body {
 
 	&:focus-visible {
 		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
-		outline-offset : calc(var(--outline-size) * 2 + 1px);
+		outline-offset : calc(var(--outline-size) * 1 + 1px);
 	}
 }

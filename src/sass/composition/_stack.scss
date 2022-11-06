@@ -1,10 +1,16 @@
 .stack {
 	--_space        : var(--space, var(--space-1, #{$space}));
+
+	display         : flex;
+	flex-direction  : column;
+	justify-content : flex-start;
+	gap             : var(--_space);
+
 	& > * {
 		margin-block : 0;
 	}
 
 	& > * + * {
-		margin-block-start : var(--_space);
+		//margin-block-start : var(--_space);
 	}
 }
