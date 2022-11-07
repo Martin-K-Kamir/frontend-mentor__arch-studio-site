@@ -63,7 +63,11 @@
 .darken-image {
 	position : relative;
 
-	&::before {
+	& :not(picture) {
+		z-index : 1;
+	}
+
+	picture::before {
 		content          : "";
 		position         : absolute;
 		inset            : 0;

@@ -1,21 +1,43 @@
+@use '../abstracts/modules/math';
 
 .page-label {
-	position       : absolute;
-	inset          : 0 50% auto;
-	translate      : -50% 0;
-	outline        : 1px solid red;
-	inline-size    : calc(var(--body-sizing) + var(--body-padding));
-	margin-inline  : auto;
-	pointer-events : none;
+	pointer-events  : none;
+	position        : absolute;
+	inset           : 0 50% auto;
+	z-index         : math.layer('page-label');
+	translate       : -50% 0;
+	max-inline-size : 74.25rem;
+	inline-size     : calc(100% - var(--body-padding) * 2);
 
-	z-index        : 999;
+	@media (width < $width-lg) {
+		display : none;
+	}
 
-	div {
-		outline   : 1px solid red;
-		color     : red;
-		transform : rotate(90deg);
-		transform-origin: bottom center;
-		position  : absolute;
-		left     : 0;
+	&__container {
+		position    : absolute;
+		left        : 0;
+		translate   : -100% 0;
+		inline-size : calc(var(--body-padding) / 2.25);
+	}
+
+	&__content {
+		display            : flex;
+		align-items        : center;
+
+		position           : absolute;
+		inset-inline-start : 25%;
+		transform          : rotate(90deg);
+		transform-origin   : top left;
+
+		text-transform     : uppercase;
+		letter-spacing     : 0.5em;
+		white-space        : nowrap;
+	}
+
+	&__content::before {
+		content          : "";
+		block-size       : 1px;
+		width            : 5rem;
+		background-color : currentColor;
 	}
 }
