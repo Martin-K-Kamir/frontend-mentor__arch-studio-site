@@ -42,8 +42,8 @@
 	--outline-size       : max(1px, 0.15em);
 	--outline-style      : solid;
 	--outline-color      : currentColor;
-	--body-padding       : 2rem;
-	--body-fluid-padding : #{math.clamped(2rem, 10rem, $width-md, $width-xl)};
+	--body-padding       : #{math.clamped(2rem, 6rem, $width-md, $width-xl)};
+	--body-padding-inner : #{math.clamped(2rem, 10rem, $width-md, $width-xl)};
 	--body-size          : 69.375rem;
 	--body-sizing        : min(100% - var(--body-padding) * 2, var(--body-size));
 }

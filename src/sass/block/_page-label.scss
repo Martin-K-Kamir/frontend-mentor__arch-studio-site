@@ -1,0 +1,21 @@
+
+.page-label {
+	position       : absolute;
+	inset          : 0 50% auto;
+	translate      : -50% 0;
+	outline        : 1px solid red;
+	inline-size    : calc(var(--body-sizing) + var(--body-padding));
+	margin-inline  : auto;
+	pointer-events : none;
+
+	z-index        : 999;
+
+	div {
+		outline   : 1px solid red;
+		color     : red;
+		transform : rotate(90deg);
+		transform-origin: bottom center;
+		position  : absolute;
+		left     : 0;
+	}
+}
