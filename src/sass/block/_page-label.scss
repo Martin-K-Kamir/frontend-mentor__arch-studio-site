@@ -1,12 +1,14 @@
 @use '../abstracts/modules/math';
 
 .page-label {
+	--_offset : 4.875rem;
+
 	pointer-events  : none;
 	position        : absolute;
 	inset           : 0 50% auto;
 	z-index         : math.layer('page-label');
 	translate       : -50% 0;
-	max-inline-size : 74.25rem;
+	max-inline-size : calc(var(--body-size) + var(--_offset));
 	inline-size     : calc(100% - var(--body-padding) * 2);
 
 	@media (width < $width-lg) {
@@ -39,5 +41,6 @@
 		block-size       : 1px;
 		width            : 5rem;
 		background-color : currentColor;
+		transform        : translateY(-0.1em);
 	}
 }
