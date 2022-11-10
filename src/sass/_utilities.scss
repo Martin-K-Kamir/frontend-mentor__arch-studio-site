@@ -78,6 +78,33 @@
 	}
 }
 
+[class*="title-border"] {
+	&::before {
+		content          : "";
+		display          : block;
+		margin-bottom    : 0.8em;
+		inline-size      : 4rem;
+		block-size       : 1px;
+		background-color : hsl(var(--clr-neutral-3));
+	}
+}
+
+.title-border\/\/#{'above-md'} {
+	@media (width < $width-md) {
+		&::before {
+			display : none;
+		}
+	}
+}
+
+.title-border\/\/#{'below-md'} {
+	@media (width >= $width-md) {
+		&::before {
+			display : none;
+		}
+	}
+}
+
 :where([class^="align"], [class*="direction"], [class^="justify"]) {
 	display : flex;
 }

@@ -20,7 +20,7 @@ export default function About() {
 				<div className="wrapper">
 					<div className="even-columns">
 						<div className="stack">
-							<h2 className="title-2">Our Heritage</h2>
+							<h2 className="[ title-2 ] [ title-border ]">Our Heritage</h2>
 							<p className="desc">
 								Founded in 2007, we started as a trio of architects. Our complimentary skills and relentless attention to detail turned Arch into one of the most
 								sought after boutique firms in the country.

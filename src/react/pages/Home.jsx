@@ -11,7 +11,8 @@ export default function Home() {
 	return (
 		<main>
 			<PageLabel page="home"/>
-			<Hero image={{dir: 'home', names: ['hero-federal', 'hero-paramour', 'hero-seraph', 'hero-trinity'], widths: [375, 573, 1110]}}
+			<Hero type="slider"
+			      image={{dir: 'home', names: ['hero-federal', 'hero-paramour', 'hero-seraph', 'hero-trinity'], widths: [375, 573, 1110]}}
 			      title="Project Paramour"
 			      desc="Project made for an art museum near Southwest London. Project Paramour is a statement of bold, modern architecture."
 			      button={{href: "/portfolio", content: "See Our Portfolio"}}
@@ -22,7 +23,7 @@ export default function Home() {
 					<div className="even-columns">
 						<div className="stack">
 							<p className="title-4">Welcome</p>
-							<h2 className="title-2">Welcome to Arch Studio</h2>
+							<h2 className="[ title-2 ] [ title-border//below-md ]">Welcome to Arch Studio</h2>
 							<p className="desc">
 								We have a unique network and skillset to help bring your projects to life. Our small team of highly skilled individuals combined with our large
 								network put us in a strong position to deliver exceptional results.

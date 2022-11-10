@@ -18,7 +18,7 @@ export default function Contact() {
 		<section>
 			<div className="wrapper">
 				<div className="direction-column//below-lg">
-					<h2 className="title-2">Contact Details</h2>
+					<h2 className="[ title-2 ] [ title-border ]">Contact Details</h2>
 					<Cards type="office" utils="measure-3" data={data.offices}/>
 				</div>
 			</div>
