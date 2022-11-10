@@ -23,7 +23,7 @@ export default function CardMember(props) {
 			<div className="card-member__content">
 				<div>
 					<p className="title-1">{props.name}</p>
-					<p className="desc fg-neutral-5">{props.role}</p>
+					<p className="desc-1 fg-neutral-5">{props.role}</p>
 				</div>
 
 				{props.socials && renderSocials()}

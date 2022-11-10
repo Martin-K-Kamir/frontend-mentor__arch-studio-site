@@ -8,7 +8,7 @@ export default function Cover(props) {
 			{props.image?.name && <Image dir={props.image.dir} name={props.image.name} widths={props.image.widths}/>}
 			<div className="[ wrapper ] [ self-align-center ]">
 				<h2 className="title-2">{props.title}</h2>
-				{props.desc ? <p className="desc">{props.desc}</p> : null}
+				{props.desc ? <p className="desc-1">{props.desc}</p> : null}
 				{props.button ? <Button href={props.button.href} content={props.button.content} icon={props.button.type}/> : null}
 			</div>
 		</section>

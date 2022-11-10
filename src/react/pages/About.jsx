@@ -21,19 +21,19 @@ export default function About() {
 					<div className="even-columns">
 						<div className="stack">
 							<h2 className="[ title-2 ] [ title-border ]">Our Heritage</h2>
-							<p className="desc">
+							<p className="[ desc-1 ] [ fg-neutral-5 ]">
 								Founded in 2007, we started as a trio of architects. Our complimentary skills and relentless attention to detail turned Arch into one of the most
 								sought after boutique firms in the country.
 							</p>
-							<p className="desc">
+							<p className="[ desc-1 ] [ fg-neutral-5 ]">
 								Speciliazing in Urban Design allowed us to focus on creating exceptional structures that live in harmony with their surroundings. We consider every
 								detail from every surrounding element to inform our designs.
 							</p>
-							<p className="desc">
+							<p className="[ desc-1 ] [ fg-neutral-5 ]">
 								Our small team of world-class professionals provides input on every project.
 							</p>
 						</div>
-						<Image dir="about" name="heritage" widths={[540]}/>
+						<Image classes="[ hide//below-lg ]" dir="about" name="heritage" widths={[540]}/>
 					</div>
 				</div>
 			</section>

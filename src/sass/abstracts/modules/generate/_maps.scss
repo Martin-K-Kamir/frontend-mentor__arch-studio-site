@@ -108,6 +108,7 @@ $aligns          : (
 		'break-at' : 'both',
 		'align-center' : 'center',
 		'align-start' : 'start',
+		'align-end' : 'end',
 ) !default;
 
 $justifys        : (
@@ -154,7 +155,7 @@ $displays        : (
 		'utils-property' : 'display',
 		'breakpoints' : auto,
 		'break-at' : 'both',
-		'display-none' : 'none',
+		'hide' : 'none',
 ) !default;
 
 $letter-spacings : (

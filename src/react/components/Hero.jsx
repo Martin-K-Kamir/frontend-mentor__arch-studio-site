@@ -11,9 +11,9 @@ export default function Hero(props) {
 				:
 				<Image dir={props.image.dir} name="hero" widths={props.image.widths}/>}
 			<div className="hero__content">
-				{/*{props.subtitle && <p className="title-4">{props.subtitle}</p>}*/}
+				{props.subtitle && <p className="[ title-4 ] [ fg-neutral-3 title-floated hide//below-md ]">{props.subtitle}</p>}
 				<h1 className={props.type === 'slider' ? 'title-3' : '[ title-2 ] [ title-border//above-md ]'}>{props.title}</h1>
-				{props.desc && <p className="desc">{props.desc}</p>}
+				{props.desc && <p className="[ desc-1 ] [ fg-neutral-5 ]">{props.desc}</p>}
 				{props.button ? <Button href={props.button.href} content={props.button.content} icon={props.button.icon}/> : null}
 			</div>
 		</section>

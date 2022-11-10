@@ -49,11 +49,11 @@
 	}
 
 	:where(input, textarea) {
+		font-weight      : var(--fw-3);
 		width            : 100%;
 		outline          : none;
 		border           : none;
 		border-block-end : 0.15em solid hsl(var(--clr-neutral-6));
-		font-weight      : var(--fw-3);
 	}
 
 	:where(input, textarea):invalid:not(:placeholder-shown):not(:focus) {

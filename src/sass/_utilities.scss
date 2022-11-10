@@ -5,7 +5,7 @@
 	@include generate.all((
 			'colors' : (
 					'src' : ('neutral' : (hsl(225, 13%, 12%))),
-					'tints' : (30%, 55%, 80%, 94%, 100%),
+					'tints' : (20%, 45%, 75%, 94%, 100%),
 					'shades' : (30%),
 			),
 			'font-types' : (
@@ -103,6 +103,16 @@
 			display : none;
 		}
 	}
+}
+
+.relative {
+	position : relative;
+}
+
+.title-floated {
+	position           : absolute;
+	translate          : 0 -0.85em;
+	inset-inline-start : 0;
 }
 
 :where([class^="align"], [class*="direction"], [class^="justify"]) {

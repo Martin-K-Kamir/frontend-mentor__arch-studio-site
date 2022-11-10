@@ -1,8 +1,9 @@
 
 .even-columns {
-	--_space       : var(--space, var(--space-1, #{$space}));
+	--_space          : var(--space, var(--space-1, #{$space}));
 
-	display        : grid;
-	grid-gap       : var(--_space);
-	grid-auto-flow : column;
+	display           : grid;
+	grid-gap          : var(--_space);
+	grid-auto-flow    : column;
+	grid-auto-columns : 1fr;
 }
