@@ -18,7 +18,7 @@ export default function Contact() {
 		<section>
 			<div className="wrapper">
 				<div className="direction-column//below-lg">
-					<h2 className="[ title-2 ] [ title-border ]">Contact Details</h2>
+					<h2 className="[ title-2 ] [ title-border measure-1 ]">Contact Details</h2>
 					<Cards type="office" utils="measure-3" data={data.offices}/>
 				</div>
 			</div>
@@ -33,7 +33,7 @@ export default function Contact() {
 		<section>
 			<div className="wrapper">
 				<div className="direction-column//below-lg">
-					<h2 className="title-2">Contact with us</h2>
+					<h2 className="[ title-2 ] [ title-border measure-1 ]">Contact with&nbsp;us</h2>
 					<ContactForm/>
 				</div>
 			</div>

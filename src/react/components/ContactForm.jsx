@@ -6,7 +6,7 @@ export default function ContactForm() {
 			<div className="stack">
 				<div className="form__group">
 					<label htmlFor="name">Name</label>
-					<input type="text" id="name" name="name" placeholder="Name" required={true} pattern="[a-zA-Z-\p{L}]" title="Enter valid full name"/>
+					<input type="text" id="name" name="name" placeholder="Name" required={true} pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Enter valid full name"/>
 				</div>
 				<div className="form__group">
 					<label htmlFor="email">Email</label>

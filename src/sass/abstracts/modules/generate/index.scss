@@ -156,12 +156,12 @@
 		@include font-types($config);
 	}
 
-	@if map-has-key($config, 'space-types') {
-		@include space-types($config);
-	}
-
 	@if map-has-key($config, 'fluid-font-types') {
 		@include fluid-font-types($config);
+	}
+
+	@if map-has-key($config, 'space-types') {
+		@include space-types($config);
 	}
 
 	@if map-has-key($config, 'fluid-space-types') {

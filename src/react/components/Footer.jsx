@@ -12,8 +12,8 @@ export default function Footer() {
 				<Link to="/" aria-label="homepage"><Logo type="box"/></Link>
 				<div className="[ footer__lists ] [ direction-column align-center//below-md text-center//below-md ]">
 					<Navigation label="footer"/>
-					<p className="fs-1 fg-neutral-4">Challenge by <a href="https://www.frontendmentor.io/home">Frontend Mentor</a>. Coded by Martin Kamír.</p>
-					<ul className="cluster" role="list">
+					<p className="fs-1 fg-neutral-4">Challenge by <a href="https://www.frontendmentor.io/home">Frontend&nbsp;Mentor</a>. Coded&nbsp;by&nbsp;Martin&nbsp;Kamír.</p>
+					<ul className="[ cluster ] [ space-3 ]" role="list">
 						<li>
 							<a rel="noreferrer" target="_blank" href="https://martinkamir.com/" aria-label="author's website">
 								<Icon type="mkk"/>

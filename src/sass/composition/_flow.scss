@@ -1,0 +1,6 @@
+
+.flow {
+	--_space : var(--space, var(--space-1, #{$space}));
+	display  : flex;
+	gap      : var(--_space);
+}

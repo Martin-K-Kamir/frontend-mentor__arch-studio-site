@@ -14,10 +14,11 @@
 	.wrapper {
 		inline-size    : revert;
 		margin-inline  : revert;
-		padding-inline : var(--body-padding);
+		padding-inline : var(--space-body-1);
 
 		@media (width >= $width-md) {
-			padding-inline-start : var(--body-padding-inner);
+			padding-inline-start : var(--space-body-2);
+			padding-inline-end   : 0;
 		}
 	}
 }

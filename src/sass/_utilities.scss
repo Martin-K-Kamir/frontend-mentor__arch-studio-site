@@ -1,11 +1,12 @@
 @use 'abstracts/modules/generate';
 @use 'abstracts/modules/math';
-
+// not fluid - 10 16 20 30 40 50 60 120 150 = 9x
+// fluid - 50 30, 50 80, 150 20, 50 20, 40 20, 60 40, 200 70, 150 50 = 8x
 :root {
 	@include generate.all((
 			'colors' : (
 					'src' : ('neutral' : (hsl(225, 13%, 12%))),
-					'tints' : (20%, 45%, 75%, 94%, 100%),
+					'tints' : (20%, 45%, 75%, 92%, 100%),
 					'shades' : (30%),
 			),
 			'font-types' : (
@@ -19,6 +20,16 @@
 							math.clamped(3rem, 6rem),
 							math.clamped(7.5rem, 15.625rem, $width-md, $width-xl)
 					),
+			),
+			'space-types' : (
+					'base' : 0.5rem,
+					'ratio' : 'augmented fourth',
+					'length' : 9,
+			),
+			'fluid-space-types' : (
+					'base' : ('min': 0.85rem, 'max': 1rem),
+					'ratio' : ('min': 1.200, 'max': 1.333),
+					'length' : 10,
 			),
 			'utilities' : (
 					'src' : (
@@ -36,16 +47,16 @@
 			),)
 	);
 
-	--ff-primary         : 'League Spartan', sans-serif;
-	--ff-body            : var(--ff-primary);
-	--ff-heading         : var(--ff-primary);
-	--outline-size       : max(1px, 0.15em);
-	--outline-style      : solid;
-	--outline-color      : currentColor;
-	--body-padding       : #{math.clamped(2rem, 6rem, $width-md, $width-xl)};
-	--body-padding-inner : #{math.clamped(2rem, 10rem, $width-md, $width-xl)};
-	--body-size          : 69.375rem;
-	--body-sizing        : min(100% - var(--body-padding) * 2, var(--body-size));
+	--ff-primary    : 'League Spartan', sans-serif;
+	--ff-body       : var(--ff-primary);
+	--ff-heading    : var(--ff-primary);
+	--outline-size  : max(1px, 0.15em);
+	--outline-style : solid;
+	--outline-color : currentColor;
+	--space-body-1  : #{math.clamped(2rem, 6rem, $width-md, $width-xl)};
+	--space-body-2  : #{math.clamped(2rem, 10rem, $width-md, $width-xl)};
+	--body-size     : 69.375rem;
+	--body-sizing   : min(100% - var(--space-body-1) * 2, var(--body-size));
 }
 
 .sr-only {
@@ -61,6 +72,8 @@
 }
 
 .darken-image {
+	--_darken : var(--darken, 0.45);
+
 	position : relative;
 
 	& :not(picture) {
@@ -72,7 +85,7 @@
 		position         : absolute;
 		inset            : 0;
 		background-color : hsl(var(--clr-neutral-7));
-		opacity          : var(--darken-image-opacity, 0.45);
+		opacity          : var(--_darken);
 		border-radius    : inherit;
 		transition       : opacity var(--darken-image-duration, 300ms) var(--darken-image-timing, ease-in-out);
 	}
@@ -82,7 +95,7 @@
 	&::before {
 		content          : "";
 		display          : block;
-		margin-bottom    : 0.8em;
+		margin-block-end : 0.8em;
 		inline-size      : 4rem;
 		block-size       : 1px;
 		background-color : hsl(var(--clr-neutral-3));
@@ -97,22 +110,33 @@
 	}
 }
 
-.title-border\/\/#{'below-md'} {
-	@media (width >= $width-md) {
+.title-border\/\/#{'below-lg'} {
+	@media (width >= $width-lg) {
 		&::before {
 			display : none;
 		}
 	}
 }
 
-.relative {
-	position : relative;
+.title-floated {
+	--_translate-inline   : var(--translate-inline, 0);
+	--_translate-block    : var(--translate-block, -0.85em);
+	--_inset-inline-start : var(--inset-inline-start, 0);
+	--_inset-inline-end   : var(--inset-inline-end, auto);
+	--_inset-block-start  : var(--inset-block-start, auto);
+	--_inset-block-end    : var(--inset-block-end, auto);
+
+	position              : absolute;
+	translate             : var(--_translate-inline) var(--_translate-block);
+	inset                 : var(--_inset-block-start) var(--_inset-inline-end) var(--_inset-block-end) var(--_inset-inline-start);
+
+	& + * {
+		margin-block-start : 0;
+	}
 }
 
-.title-floated {
-	position           : absolute;
-	translate          : 0 -0.85em;
-	inset-inline-start : 0;
+.relative {
+	position : relative;
 }
 
 :where([class^="align"], [class*="direction"], [class^="justify"]) {

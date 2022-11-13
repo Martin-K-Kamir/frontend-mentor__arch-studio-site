@@ -1,20 +1,30 @@
+@use '../abstracts/modules/math';
 
 .footer {
-	--icon-size   : 1.785rem;
+	--icon-size        : 1.5rem;
+	--logo-size        : #{math.clamped(7.5rem, 10rem)};
 
-	margin-inline : auto;
+	margin-inline      : auto;
+	margin-block-start : calc(var(--space-fluid-9) + (var(--logo-size) / 2));
+
+	@media (width >= $width-md) {
+		margin-block-start : var(--space-fluid-9);
+	}
 
 	@media (width >= $width-lg) {
 		inline-size : var(--body-sizing);
 	}
 
 	&__container {
-		--_slice : 9.9rem;
+		--_slice : calc(5rem + 9.6vw);
+		--_space : var(--space-5, #{$space});
 
 		position : relative;
+		gap      : var(--_space);
 
 		@media (width < $width-md) {
-			padding-inline : var(--body-padding);
+			padding-block-end : var(--_space);
+			padding-inline    : var(--space-body-1);
 		}
 
 		@media (width >= $width-md) {
@@ -23,6 +33,16 @@
 
 		@media (width >= $width-lg) {
 			--_slice : 7.7rem;
+		}
+	}
+
+	&__lists {
+		--space  : var(--space-fluid-2, #{$space});
+		--_space : var(--space);
+		gap      : var(--_space);
+
+		@media (width >= $width-md) {
+			--_space : var(--space-1);
 		}
 	}
 

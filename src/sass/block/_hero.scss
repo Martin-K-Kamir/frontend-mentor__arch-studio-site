@@ -1,61 +1,50 @@
 @use '../abstracts/modules/math';
 
 .hero {
-	position   : relative;
-	block-size : math.clamped(35rem, 45rem, $width-sm, $width-md);
+	--_block-size  : #{math.clamped(35rem, 45rem, $width-sm, $width-md)};
 
+	position       : relative;
+	inline-size    : 100%;
+	min-block-size : var(--_block-size);
 }
 
 .hero:not([data-type]) {
+
 	.hero__content {
 		position         : relative;
 		background-color : hsl(var(--clr-neutral-1));
-		min-block-size   : 50%;
+		min-block-size   : 70%;
+		padding          : var(--space-body-1) var(--space-body-1) 0;
 
 		@media (width >= $width-md) {
-			position         : absolute;
-			inline-size      : 90%;
-			inset-block-end  : 0;
-			inset-inline-end : 0;
-		}
-
-		@media (width >= $width-lg) {
-			inline-size : 50%;
+			padding     : var(--space-fluid-7) 0 0 var(--space-fluid-7);
+			position    : absolute;
+			inline-size : 60%;
+			inset       : auto 0 0 auto;
 		}
 	}
 
-	.hero__content::before {
-		@media (width < $width-md) {
-			content            : "";
-			position           : absolute;
-			inset-block-start  : 0;
-			inset-inline-start : 0;
-			inline-size        : 90%;
-			block-size         : 2.8125rem;
-			translate          : 0 -99%;
-			background-color   : inherit;
-		}
+	.title-floated {
+		--inset-inline-start : -0.4em;
 	}
 
 	picture {
-		block-size : 50%;
+		--_split   : 2;
+		block-size : calc(var(--_block-size) / var(--_split));
 
 		@media (width >= $width-md) {
-			block-size : 100%;
+			--_split    : 1;
+			inline-size : 85%;
 		}
 
 		@media (width >= $width-lg) {
-			inline-size : 60%;
+			inline-size : 65%;
 		}
 	}
 
 	img {
-		object-fit : cover;
-		width      : 100%;
-		block-size : 100%;
+		object-fit  : cover;
+		inline-size : 100%;
+		block-size  : 100%;
 	}
-}
-
-.hero[data-type="slider"] {
-	background-color: red;
 }

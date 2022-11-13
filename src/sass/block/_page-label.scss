@@ -1,7 +1,7 @@
 @use '../abstracts/modules/math';
 
 .page-label {
-	--_offset : 4.875rem;
+	--_offset       : 4.875rem;
 
 	pointer-events  : none;
 	position        : absolute;
@@ -9,7 +9,7 @@
 	z-index         : math.layer('page-label');
 	translate       : -50% 0;
 	max-inline-size : calc(var(--body-size) + var(--_offset));
-	inline-size     : calc(100% - var(--body-padding) * 2);
+	inline-size     : calc(100% - var(--space-body-1) * 2);
 
 	@media (width < $width-lg) {
 		display : none;
@@ -19,12 +19,13 @@
 		position    : absolute;
 		left        : 0;
 		translate   : -100% 0;
-		inline-size : calc(var(--body-padding) / 2.25);
+		inline-size : calc(var(--space-body-1) / 2.25);
 	}
 
 	&__content {
 		display            : flex;
 		align-items        : center;
+		gap: var(--space-1, #{$space});
 
 		position           : absolute;
 		inset-inline-start : 25%;
@@ -39,7 +40,7 @@
 	&__content::before {
 		content          : "";
 		block-size       : 1px;
-		width            : 5rem;
+		inline-size      : 5.3rem;
 		background-color : currentColor;
 		transform        : translateY(-0.1em);
 	}

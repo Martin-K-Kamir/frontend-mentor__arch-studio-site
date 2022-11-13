@@ -3,8 +3,14 @@
 	font-size : var(--fs-2);
 	color     : hsl(var(--clr-neutral-5));
 
+	ul {
+		--_space : var(--space, var(--space-fluid-4, #{$space}));
+		gap      : var(--_space);
+	}
+
 	.header & {
 		@media (width < $width-md) {
+			padding : var(--space-5);
 			font-size : var(--fs-3);
 			color     : hsl(var(--clr-neutral-6));
 		}

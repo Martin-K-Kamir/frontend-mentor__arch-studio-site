@@ -23,14 +23,15 @@ html:focus-within {
 
 html,
 body {
-	min-height : 100%;
 	overflow-x : hidden;
 }
 
 /* Set core body defaults */
 body {
 	text-rendering : optimizeSpeed;
+	min-block-size     : 100vh;
 }
+
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {

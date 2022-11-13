@@ -2,6 +2,7 @@
 .card-project {
 	--_min-block-size : 15rem;
 	--_max-block-size : 40vw;
+	--_space          : var(--space, var(--space-1, #{$space}));
 
 	position          : relative;
 	min-block-size    : var(--_min-block-size);
@@ -9,6 +10,7 @@
 
 	&__content {
 		z-index : 2;
+		padding : var(--_space);
 	}
 
 	&::after {

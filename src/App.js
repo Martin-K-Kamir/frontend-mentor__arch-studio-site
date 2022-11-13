@@ -1,6 +1,5 @@
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
-
 import ScrollToTop from "./react/utilities/ScrollToTop";
 import Header from "./react/components/Header";
 import Footer from "./react/components/Footer";
@@ -12,8 +11,7 @@ import ComingSoon from "./react/pages/ComingSoon";
 
 
 export default function App() {
-	return (
-		<div className="App">
+	return (<div className="App">
 			<Router>
 				<ScrollToTop>
 					<Header/>
@@ -27,9 +25,6 @@ export default function App() {
 					<Footer/>
 				</ScrollToTop>
 			</Router>
-
-		</div>
-	)
-		;
+		</div>);
 }
 

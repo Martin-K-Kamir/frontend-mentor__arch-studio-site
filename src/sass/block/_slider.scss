@@ -1,4 +1,57 @@
 
 .slider {
-	display: flex;
+	block-size  : 100%;
+	inline-size : 100vw;
+
+	@media (width >= $width-md) {
+		inline-size : 100%;
+	}
+
+	&__container {
+		position                   : relative;
+		block-size                 : 100%;
+		display                    : grid;
+		grid-auto-columns          : 100%;
+		grid-auto-flow             : column;
+		scroll-snap-type           : inline mandatory;
+		scroll-behavior            : smooth;
+		overflow                   : auto hidden;
+		overscroll-behavior-inline : contain;
+		scrollbar-width            : none;
+
+		&::-webkit-scrollbar {
+			display : none;
+		}
+	}
+
+	&__content {
+		@media (hover : hover) {
+			padding-block-end : 4rem; // tabs block size
+		}
+	}
+
+	&__slide {
+		scroll-snap-align : start;
+	}
+
+	.desc-1 {
+		--measure : 75vw;
+
+		@media (width >= $width-md) {
+			--measure : var(--measure-5);
+		}
+	}
+
+	.tabs {
+		@media (hover : none) {
+			display : none;
+		}
+
+		position : absolute;
+		inset    : auto auto 0 0;
+
+		@media (width >= $width-lg) {
+			--offset-tab-by : 1;
+		}
+	}
 }

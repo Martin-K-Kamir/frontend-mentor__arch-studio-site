@@ -1,5 +1,11 @@
 
+:where([class*="title-"], [class*="desc-"]) {
+	max-inline-size : var(--measure);
+}
+
 .desc-1 {
+	--measure   : var(--measure-6);
+
 	font-size   : var(--fs-2);
 	font-weight : var(--fw-2);
 }

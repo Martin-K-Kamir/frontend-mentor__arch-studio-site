@@ -9,43 +9,47 @@ export default function About() {
 	return (
 		<main>
 			<PageLabel page="about us"/>
-			<Hero image={{dir: 'about', widths: [375, 573, 635]}}
-			      title="Your team of professionals"
-			      subtitle="About"
-			      desc="Our small team of world-class professionals will work with you every step of the way. Strong relationships are at the core of everything we do. This extends to the relationship our projects have with their surroundings."
-			/>
+			<div className="[ stack ] [ space-fluid-9 ]">
+				<Hero image={{dir: 'about', widths: [375, 573, 635]}}
+				      title="Your team of professionals"
+				      subtitle="About"
+				      desc="Our small team of world-class professionals will work with you every step of the way. Strong relationships are at the core of everything we do. This extends to the relationship our projects have with their surroundings."
+				/>
 
 
-			<section>
-				<div className="wrapper">
-					<div className="even-columns">
-						<div className="stack">
-							<h2 className="[ title-2 ] [ title-border ]">Our Heritage</h2>
-							<p className="[ desc-1 ] [ fg-neutral-5 ]">
-								Founded in 2007, we started as a trio of architects. Our complimentary skills and relentless attention to detail turned Arch into one of the most
-								sought after boutique firms in the country.
-							</p>
-							<p className="[ desc-1 ] [ fg-neutral-5 ]">
-								Speciliazing in Urban Design allowed us to focus on creating exceptional structures that live in harmony with their surroundings. We consider every
-								detail from every surrounding element to inform our designs.
-							</p>
-							<p className="[ desc-1 ] [ fg-neutral-5 ]">
-								Our small team of world-class professionals provides input on every project.
-							</p>
+				<section>
+					<div className="wrapper">
+						<div className="even-columns">
+							<div className="stack">
+								<h2 className="[ title-2 ] [ title-border measure-1 ]">Our Heritage</h2>
+								<p className="[ desc-1 ] [ fg-neutral-5 measure-5 ]">
+									Founded in 2007, we started as a trio of architects. Our complimentary skills and relentless attention to detail turned Arch into one of the
+									most
+									sought after boutique firms in the country.
+								</p>
+								<p className="[ desc-1 ] [ fg-neutral-5 measure-5 ]">
+									Speciliazing in Urban Design allowed us to focus on creating exceptional structures that live in harmony with their surroundings. We consider
+									every
+									detail from every surrounding element to inform our designs.
+								</p>
+								<p className="[ desc-1 ] [ fg-neutral-5 measure-5 ]">
+									Our small team of world-class professionals provides input on every project.
+								</p>
+							</div>
+							<Image classes="[ hide//below-lg ]" dir="about" name="heritage" widths={[540]}/>
 						</div>
-						<Image classes="[ hide//below-lg ]" dir="about" name="heritage" widths={[540]}/>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<section>
-				<div className="wrapper">
-					<div className="direction-column//below-lg">
-						<h2 className="title-2">The Leaders</h2>
-						<Cards type="member" utils="measure-2" data={data.members}/>
+				<section>
+					<div className="wrapper">
+						<div className="flow space-fluid-10 direction-column//below-lg">
+							<h2 className="[ title-2 ] [ measure-1 ]">The Leaders</h2>
+							<Cards type="member" utils="measure-2 space-4" data={data.members}/>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			</div>
 		</main>
 	);
 }

@@ -27,5 +27,22 @@
 @import 'composition/stack';
 @import 'composition/stacked';
 @import 'composition/even-columns';
+@import 'composition/flow';
 
 @import 'utilities';
+
+.boxes {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	.box {
+		block-size: 3rem;
+		inline-size: var(--space);
+		background-color: pink;
+	}
+
+	.box.blue {
+		background-color: lightblue;
+	}
+}

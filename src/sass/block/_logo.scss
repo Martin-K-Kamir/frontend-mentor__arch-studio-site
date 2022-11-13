@@ -1,13 +1,14 @@
 @use '../abstracts/modules/math';
 
 .logo {
-	--_fg : var(--clr-neutral-6, #000);
+	--_fg        : var(--clr-neutral-6, #000000);
+	--_logo-size : var(--logo-size, #{math.clamped(4.85rem, 6rem)});
 
-	color : hsl(var(--_fg));
-	fill  : CurrentColor;
+	color        : hsl(var(--_fg));
+	fill         : CurrentColor;
 
 	svg {
-		inline-size : math.clamped(4.85rem, 6rem);
+		inline-size : var(--_logo-size);
 		height      : auto;
 	}
 }
@@ -15,14 +16,15 @@
 .logo[data-type="box"] {
 	--_fg            : var(--clr-neutral-1);
 	--_bg            : var(--clr-neutral-6);
+	--_logo-size     : var(--logo-size, #{math.clamped(7.5rem, 10rem)});
 
 	display          : grid;
 	place-items      : center;
-	inline-size      : math.clamped(7.5rem, 10rem);
+	inline-size      : var(--_logo-size);
 	aspect-ratio     : 1;
 	background-color : hsl(var(--_bg));
 
 	svg {
-		inline-size : math.clamped(3.625rem, 6rem);
+		inline-size : 50%;
 	}
 }

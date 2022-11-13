@@ -17,3 +17,21 @@ body {
 		outline-offset : calc(var(--outline-size) * 1 + 1px);
 	}
 }
+
+.App {
+	min-block-size : 100vh;
+
+	&:has(.singlepage) {
+		display        : flex;
+		flex-direction : column;
+	}
+
+	&:has(.singlepage) footer {
+		margin-block-start : auto;
+
+		@media (width < $width-lg) {
+			inline-size : 100%;
+		}
+	}
+}
+
