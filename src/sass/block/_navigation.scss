@@ -1,18 +1,33 @@
 
 .navigation {
-	font-size : var(--fs-2);
-	color     : hsl(var(--clr-neutral-5));
-
 	ul {
 		--_space : var(--space, var(--space-fluid-4, #{$space}));
 		gap      : var(--_space);
 	}
 
+	li {
+		--_fg     : var(--fg, var(--clr-neutral-5));
+		--_fs     : var(--fs, var(--fs-2));
+		font-size : var(--_fs);
+		color     : hsl(var(--_fg));
+
+		.header & {
+			@media (width < $width-md) {
+				--_fs : var(--fs-3);
+				--_fg : hsl(var(--clr-neutral-7));
+			}
+		}
+	}
+
+	li:hover {
+		@media (hover : hover) {
+			--_fg : var(--clr-neutral-7);
+		}
+	}
+
 	.header & {
 		@media (width < $width-md) {
 			padding : var(--space-5);
-			font-size : var(--fs-3);
-			color     : hsl(var(--clr-neutral-6));
 		}
 	}
 }

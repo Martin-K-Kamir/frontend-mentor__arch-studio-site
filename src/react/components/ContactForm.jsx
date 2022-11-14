@@ -3,7 +3,7 @@ import Button from "./Button";
 export default function ContactForm() {
 	return (
 		<form action="#" className="form">
-			<div className="stack">
+			<div className="[ stack ] [ space-5 ]">
 				<div className="form__group">
 					<label htmlFor="name">Name</label>
 					<input type="text" id="name" name="name" placeholder="Name" required={true} pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Enter valid full name"/>

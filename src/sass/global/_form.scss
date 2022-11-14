@@ -31,7 +31,7 @@
 		--lh      : var(--lh-1);
 		--opacity : 0.8;
 
-		transform : translateY(-100%);
+		transform : translateY(-120%);
 	}
 
 	label {
@@ -46,6 +46,10 @@
 	textarea {
 		resize         : vertical;
 		vertical-align : top
+	}
+
+	input {
+		padding-block-end : 0.15em;
 	}
 
 	:where(input, textarea) {

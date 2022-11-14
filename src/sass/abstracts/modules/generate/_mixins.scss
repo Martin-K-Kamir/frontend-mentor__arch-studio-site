@@ -417,7 +417,7 @@
 	}
 
 	@if $mixin == 'space-types' or $mixin == 'fluid-space-types' {
-		--#{$prefix}-0 : 0;
+		--#{$prefix}0 : 0rem;
 	}
 
 	@if $is-fluid and $base != null {
@@ -683,8 +683,6 @@
 		}
 
 		@each $key, $value in $map {
-
-
 			@if $utils == 'both' or $utils == 'variable' {
 				--#{$key} : #{$value};
 				$value    : var(--#{$key});

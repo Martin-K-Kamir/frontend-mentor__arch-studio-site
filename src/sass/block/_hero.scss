@@ -48,3 +48,7 @@
 		block-size  : 100%;
 	}
 }
+
+.hero[data-type="slider"] {
+	block-size: var(--_block-size);
+}

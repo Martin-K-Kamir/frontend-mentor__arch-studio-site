@@ -25,7 +25,7 @@
 	&__content {
 		display            : flex;
 		align-items        : center;
-		gap: var(--space-1, #{$space});
+		gap                : 1.6rem;
 
 		position           : absolute;
 		inset-inline-start : 25%;
@@ -40,7 +40,7 @@
 	&__content::before {
 		content          : "";
 		block-size       : 1px;
-		inline-size      : 5.3rem;
+		inline-size      : 4.3rem;
 		background-color : currentColor;
 		transform        : translateY(-0.1em);
 	}

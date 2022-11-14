@@ -6,7 +6,7 @@
 .desc-1 {
 	--measure   : var(--measure-6);
 
-	font-size   : var(--fs-2);
+	font-size   : var(--fs-desc-1, var(--fs-2));
 	font-weight : var(--fw-2);
 }
 
@@ -17,19 +17,18 @@
 }
 
 .title-1 {
-	font-size   : var(--fs-4);
-	line-height : var(--line-height-2);
+	font-size   : var(--fs-title-1, var(--fs-4));
 }
 
 .title-2 {
-	font-size : var(--fs-fluid-1);
+	font-size : var(--fs-title-2, var(--fs-fluid-1));
 }
 
 .title-3 {
-	font-size : var(--fs-fluid-2);
+	font-size : var(--fs-title-3, var(--fs-fluid-2));
 }
 
 .title-4 {
-	font-size : var(--fs-fluid-3);
+	font-size : var(--fs-title-4, var(--fs-fluid-3));
 }
 

@@ -1,7 +1,6 @@
 @use 'abstracts/modules/generate';
 @use 'abstracts/modules/math';
-// not fluid - 10 16 20 30 40 50 60 120 150 = 9x
-// fluid - 50 30, 50 80, 150 20, 50 20, 40 20, 60 40, 200 70, 150 50 = 8x
+
 :root {
 	@include generate.all((
 			'colors' : (
@@ -28,7 +27,7 @@
 			),
 			'fluid-space-types' : (
 					'base' : ('min': 0.85rem, 'max': 1rem),
-					'ratio' : ('min': 1.200, 'max': 1.333),
+					'ratio' : ('min': 'minor-third', 'max': 'perfect-fourth'),
 					'length' : 10,
 			),
 			'utilities' : (

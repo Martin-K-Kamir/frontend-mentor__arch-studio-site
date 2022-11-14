@@ -16,7 +16,6 @@ export default function About() {
 				      desc="Our small team of world-class professionals will work with you every step of the way. Strong relationships are at the core of everything we do. This extends to the relationship our projects have with their surroundings."
 				/>
 
-
 				<section>
 					<div className="wrapper">
 						<div className="even-columns">
@@ -43,9 +42,11 @@ export default function About() {
 
 				<section>
 					<div className="wrapper">
-						<div className="flow space-fluid-10 direction-column//below-lg">
-							<h2 className="[ title-2 ] [ measure-1 ]">The Leaders</h2>
-							<Cards type="member" utils="measure-2 space-4" data={data.members}/>
+						<div className="[ switcher ] [ space-4 measure-7 ]">
+							<h2 className="[ title-2 ] [ measure-1 ]">The<br/>Leaders</h2>
+							<div>
+								<Cards type="member" utils="space-4 measure-2" data={data.members}/>
+							</div>
 						</div>
 					</div>
 				</section>

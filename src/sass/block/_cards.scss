@@ -43,15 +43,14 @@
 .card-member {
 	container-type : inline-size;
 
-	@media (width < $width-md) {
-		margin-inline   : auto;
-		max-inline-size : 21.875rem;
-	}
+	//@media (width < $width-md) {
+	//	margin-inline   : auto;
+	//	max-inline-size : 15rem;
+	//}
 
 	img {
-		inline-size    : 100%;
-		max-block-size : 20rem;
-		object-fit     : cover;
+		inline-size : 100%;
+		object-fit  : cover;
 	}
 
 	&__image {
@@ -88,7 +87,7 @@
 
 	&__content {
 		@media (hover : none) {
-			@container (width > 17em) {
+			@container (width >= 18rem) {
 				display         : flex;
 				justify-content : space-between;
 			}
@@ -96,7 +95,8 @@
 	}
 
 	&__content &__socials {
-		--icon-size : 1.65rem;
+		--icon-size        : 1.65rem;
+		margin-block-start : 0.25em;
 
 		@media (hover : hover) {
 			display : none;
@@ -105,6 +105,7 @@
 
 	&__socials {
 		display : flex;
+		gap     : var(--space-1);
 	}
 }
 
@@ -114,8 +115,9 @@
 	&__content {
 		@container (width > 26em) {
 			display         : flex;
-			justify-content : space-between;
-			align-items     : end;
+			justify-content : space-between !important; //overwrite the stack class;
+			align-items     : end !important;
+			flex-direction  : row !important;
 		}
 	}
 }

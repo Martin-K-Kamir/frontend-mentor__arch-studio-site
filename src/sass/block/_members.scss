@@ -1,0 +1,12 @@
+@use '../abstracts/modules/math';
+
+.members {
+	--measure : 16ch;
+	display   : flex;
+	gap       : var(--space-3);
+
+	@media (width >= $width-md) {
+		--measure : 18ch;
+		gap       : math.clamped(3.65rem, 17rem, $width-md, $width-lg);
+	}
+}
