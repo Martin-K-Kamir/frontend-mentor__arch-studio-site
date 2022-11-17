@@ -1,4 +1,9 @@
 
+html {
+	scroll-behavior: smooth;
+	scroll-padding-block-start: var(--space-body-1);
+}
+
 body {
 	font-family      : var(--ff-body);
 	font-size        : var(--fs-2);
@@ -15,6 +20,15 @@ body {
 	&:focus-visible {
 		outline        : var(--outline-size) var(--outline-style) var(--outline-color);
 		outline-offset : calc(var(--outline-size) * 1 + 1px);
+	}
+}
+
+:where(ul, ol)[data-counter="true"] {
+	--counter-visibility : block;
+	counter-reset        : list-counter;
+
+	li {
+		counter-increment : list-counter;
 	}
 }
 

@@ -23,6 +23,22 @@
 		transition       : opacity 300ms ease-in-out;
 	}
 
+	&::before {
+		--_counter-visibility : var(--counter-visibility, none);
+
+		content        : counter(list-counter);
+		display        : var(--_counter-visibility);
+		position       : absolute;
+		z-index        : 2;
+		inset          : 1rem 1rem auto auto;
+
+		font-size      : var(--fs-fluid-3);
+		line-height    : var(--line-height-title);
+		letter-spacing : calc(-0.1 * var(--line-height-title));
+		font-weight    : var(--fw-4);
+		color          : hsl(var(--clr-neutral-1), 0.5);
+	}
+
 	@media (hover : hover) {
 		&:where(:hover, :focus-visible) {
 			--darken-image-opacity : 0.35;
@@ -42,11 +58,6 @@
 
 .card-member {
 	container-type : inline-size;
-
-	//@media (width < $width-md) {
-	//	margin-inline   : auto;
-	//	max-inline-size : 15rem;
-	//}
 
 	img {
 		inline-size : 100%;
@@ -115,7 +126,7 @@
 	&__content {
 		@container (width > 26em) {
 			display         : flex;
-			justify-content : space-between !important; //overwrite the stack class;
+			justify-content : space-between !important; //overwrite the stack class
 			align-items     : end !important;
 			flex-direction  : row !important;
 		}

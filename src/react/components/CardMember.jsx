@@ -16,7 +16,7 @@ export default function CardMember(props) {
 	return (
 		<div className="[ card-member ] [ stack ]">
 			<div className="card-member__image">
-				<Image dir={props.image.dir} name={props.image.name} widths={props.image.widths} alt={props.name}/>
+				<Image dir={props.image.dir} name={props.image.name} widths={props.image.widths} alt={props.name} lazy={props.image.lazy} width={props.image.width} height={props.image.height}/>
 
 				{props.socials && renderSocials()}
 			</div>

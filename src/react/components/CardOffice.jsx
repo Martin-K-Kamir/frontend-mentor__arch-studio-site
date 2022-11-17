@@ -10,7 +10,7 @@ export default function CardOffice(props) {
 					<li><p className="desc-1">Address : {props.address}</p></li>
 					<li><p className="desc-1">Phone : <a href={`tel:${props.phone}`}>{props.phone}</a></p></li>
 				</ul>
-				<Button href={props.href} type="ghost" utils="space-4" newTab={true} content="View on Map"/>
+				<Button href={props.href} type="ghost" utils="space-4" content="View on Map"/>
 			</div>
 		</address>
 	);

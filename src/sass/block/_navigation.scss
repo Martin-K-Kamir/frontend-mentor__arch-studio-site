@@ -1,33 +1,41 @@
 
 .navigation {
 	ul {
-		--_space : var(--space, var(--space-fluid-4, #{$space}));
-		gap      : var(--_space);
+		gap : var(--space, var(--space-1, #{$space}));
 	}
 
 	li {
-		--_fg     : var(--fg, var(--clr-neutral-5));
-		--_fs     : var(--fs, var(--fs-2));
-		font-size : var(--_fs);
-		color     : hsl(var(--_fg));
+		--_fg          : var(--fg, var(--clr-neutral-5));
+		--_fg-hover    : var(--fg-hover, var(--clr-neutral-7));
+		--_fs          : var(--fs, var(--fs-2));
 
-		.header & {
-			@media (width < $width-md) {
-				--_fs : var(--fs-3);
-				--_fg : hsl(var(--clr-neutral-7));
-			}
-		}
+		position       : relative;
+		isolation      : isolate;
+		font-size      : var(--_fs);
+		font-weight    : var(--fw-4);
+		line-height    : var(--line-height-1);
+		color          : hsl(var(--_fg));
+		text-transform : lowercase;
+	}
+
+	li:first-letter {
+		text-transform : uppercase;
+	}
+
+	li[data-type="true"]::after {
+		--_active-border : var(--active-border);
+
+		content          : "";
+		display          : var(--_active-border);
+		position         : absolute;
+		z-index          : -1;
+		inset            : 0 0 -0.3em;
+		border-block-end : 0.125em solid hsl(var(--_fg));
 	}
 
 	li:hover {
 		@media (hover : hover) {
-			--_fg : var(--clr-neutral-7);
-		}
-	}
-
-	.header & {
-		@media (width < $width-md) {
-			padding : var(--space-5);
+			--_fg : var(--_fg-hover);
 		}
 	}
 }

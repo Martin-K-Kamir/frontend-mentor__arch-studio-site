@@ -21,9 +21,14 @@
 
 	.navigation {
 		@media (width < $width-md) {
+			--active-border  : none;
+			--fs             : var(--fs-3);
+			--fg             : hsl(var(--clr-neutral-7));
+
 			position         : absolute;
 			inset            : auto 0 0 var(--space-body-1);
 			z-index          : -1;
+			padding          : var(--space-5);
 			background-color : hsl(var(--clr-neutral-2));
 		}
 	}

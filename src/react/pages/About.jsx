@@ -10,7 +10,7 @@ export default function About() {
 		<main>
 			<PageLabel page="about us"/>
 			<div className="[ stack ] [ space-fluid-9 ]">
-				<Hero image={{dir: 'about', widths: [375, 573, 635]}}
+				<Hero image={{dir: 'about', widths: [375, 573, 635], width: 721, height: 720}}
 				      title="Your team of professionals"
 				      subtitle="About"
 				      desc="Our small team of world-class professionals will work with you every step of the way. Strong relationships are at the core of everything we do. This extends to the relationship our projects have with their surroundings."
@@ -35,7 +35,7 @@ export default function About() {
 									Our small team of world-class professionals provides input on every project.
 								</p>
 							</div>
-							<Image classes="[ hide//below-lg ]" dir="about" name="heritage" widths={[540]}/>
+							<Image classes="[ hide//below-lg ]" dir="about" name="heritage" widths={[540]} lazy={true} width={475} height={499}/>
 						</div>
 					</div>
 				</section>

@@ -29,7 +29,7 @@ body {
 /* Set core body defaults */
 body {
 	text-rendering : optimizeSpeed;
-	min-block-size     : 100vh;
+	min-block-size : 100vh;
 }
 
 
@@ -42,8 +42,9 @@ a:not([class]) {
 img,
 picture,
 svg {
-	max-width : 100%;
-	display   : block;
+	max-inline-size : 100%;
+	block-size      : auto;
+	display         : block;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */

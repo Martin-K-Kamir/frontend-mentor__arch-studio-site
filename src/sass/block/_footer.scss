@@ -1,6 +1,7 @@
 @use '../abstracts/modules/math';
 
 .footer {
+	--active-border    : none;
 	--icon-size        : 1.5rem;
 	--logo-size        : #{math.clamped(7.5rem, 10rem)};
 

@@ -398,6 +398,7 @@
 	$screen-min     : map-get($config, 'clamp-width', 'min-width');
 	$screen-max     : map-get($config, 'clamp-width', 'max-width');
 
+	$allow          : true;
 	$base-min       : null;
 	$base-max       : null;
 	$ratio-min      : null;
@@ -416,8 +417,9 @@
 		--#{$prefix}base  : #{$base};
 	}
 
-	@if $mixin == 'space-types' or $mixin == 'fluid-space-types' {
+	@if $allow and $mixin == 'space-types' or $mixin == 'fluid-space-types' {
 		--#{$prefix}0 : 0rem;
+		$allow        : false;
 	}
 
 	@if $is-fluid and $base != null {

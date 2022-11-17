@@ -39,10 +39,8 @@ export default function Home() {
 						      button: {href: "/portfolio", content: "See Our Portfolio"},
 					      },
 				      ]}
-				      image={{dir: 'home', names: ['hero-federal', 'hero-paramour', 'hero-seraph', 'hero-trinity'], widths: [375, 573, 1110]}}
-				      title="Project Paramour"
-				      desc="Project made for an art museum near Southwest London. Project Paramour is a statement of bold, modern architecture."
-				      button={{href: "/portfolio", content: "See Our Portfolio"}}
+				      width={1110}
+				      height={720}
 				/>
 
 				<section className="wrapped">
@@ -65,12 +63,12 @@ export default function Home() {
 									create truly stunning projects that will stand the test of time.
 								</p>
 							</div>
-							<Image classes="[ hide//below-lg ]" dir="home" name="welcome" widths={[350]}/>
+							<Image lazy={true} classes="[ hide//below-lg ]" dir="home" name="welcome" widths={[350]} width={395} height={641}/>
 						</div>
 					</div>
 				</section>
 
-				<Cover title="Small team, big ideas" button={{href: "/about-us", content: "About Us"}} image={{dir: 'home', name: 'small-team', widths: [375, 573, 1110]}}/>
+				<Cover title="Small team, big ideas" button={{href: "/about-us", content: "About Us"}} image={{ lazy: true, dir: 'home', name: 'small-team', widths: [375, 573, 1110], width: 1110, height: 560 }}/>
 
 				<section>
 					<div className="wrapper">
@@ -79,17 +77,17 @@ export default function Home() {
 								<h2 className="title-2">Featured</h2>
 								<Button href="/portfolio" utils="self-justify-end hide//below-md" content="See All"/>
 							</div>
-							<ul className="[ switcher ] [ measure-7 ]" role="list">
+							<ul className="[ switcher ] [ measure-7 ]" data-counter={true} role="list">
 								<li>
-									<CardProject image={{dir: 'home', name: 'hero-seraph', widths: [375, 573, 1110]}} title="Seraph Station" date="September 2019"
+									<CardProject image={{dir: 'home', name: 'hero-seraph', widths: [375, 573, 1110], lazy: true, width: 348, height: 523}} title="Seraph Station" date="September 2019"
 									             href="/coming-soon"/>
 								</li>
 								<li>
-									<CardProject image={{dir: 'home', name: 'hero-federal', widths: [375, 573, 1110]}} title="Federal II Tower" date="March 2017"
+									<CardProject image={{dir: 'home', name: 'hero-federal', widths: [375, 573, 1110], lazy: true, width: 348, height: 523}} title="Federal II Tower" date="March 2017"
 									             href="/coming-soon"/>
 								</li>
 								<li>
-									<CardProject image={{dir: 'home', name: 'hero-trinity', widths: [375, 573, 1110]}} title="Trinity Bank Tower" date="September 2010"
+									<CardProject image={{dir: 'home', name: 'hero-trinity', widths: [375, 573, 1110], lazy: true, width: 348, height: 523}} title="Trinity Bank Tower" date="September 2010"
 									             href="/coming-soon"/>
 								</li>
 							</ul>

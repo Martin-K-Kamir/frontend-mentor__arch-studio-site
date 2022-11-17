@@ -8,6 +8,10 @@
 	min-block-size : var(--_block-size);
 }
 
+.test[data-type="test"] {
+
+}
+
 .hero:not([data-type]) {
 
 	.hero__content {

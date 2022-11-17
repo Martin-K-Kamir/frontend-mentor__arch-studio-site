@@ -9,6 +9,7 @@ const markerIcon = new L.Icon({
 	iconUrl: icon,
 	iconSize: [40, 40],
 	iconAnchor: [20, 40],
+	customId: "marker",
 });
 
 
@@ -23,13 +24,21 @@ const Map = () => {
 		}
 	}
 
+	function handleClick(e) {
+		const lat = e.latlng.lat;
+		const lng = e.latlng.lng;
+		window.open(`https://maps.google.com/?q=${lat},${lng}`, '_blank');
+	}
+
 	return (
 		<MapContainer center={[33.2954109, -90.8790031]} zoom={setZoom()} scrollWheelZoom={false} zoomControl={false}>
 			<TileLayer subdomains={['mt0', 'mt1', 'mt2', 'mt3']}
 			           attribution=' &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			           url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
 			/>
-			{data.offices.map((office, index) => <Marker icon={markerIcon} key={`office${index}`} position={[office.lat, office.lng]}></Marker>)}
+			{data.offices.map((office, index) => (
+				<Marker eventHandlers={{click: (e) => {handleClick(e)},}} icon={markerIcon} key={`office${index}`} uniqueID={office.id} position={[office.lat, office.lng]}></Marker>
+			))}
 		</MapContainer>
 	)
 }

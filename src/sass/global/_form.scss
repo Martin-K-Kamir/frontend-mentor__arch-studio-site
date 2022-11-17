@@ -1,6 +1,6 @@
 .form {
 	--clr-valid   : 134, 61%, 41%;
-	--clr-invalid : 0, 80%, 55%;
+	--clr-error : 0, 80%, 55%;
 	--clr-warn    : 30, 100%, 51%;
 
 	display       : grid;
@@ -8,28 +8,28 @@
 
 	&:not(:valid) .btn {
 		--bg           : var(--clr-neutral-4);
-		pointer-events : none;
+		//pointer-events : none;
 	}
 
-	&__group {
+	.form__group {
 		position : relative;
 	}
 
-	&__group:has(:invalid:not(:placeholder-shown)) {
+	.form__group:has(:invalid:not(:placeholder-shown)) {
 		--fg : var(--clr-warn);
 	}
 
-	&__group:has(:invalid:not(:placeholder-shown):not(:focus)) {
-		--fg : var(--clr-invalid);
+	:is(.form__group:has(:invalid:not(:placeholder-shown):not(:focus)), .form__group[data-error="true"]) {
+		--fg : var(--clr-error);
 	}
 
-	&__group:has(:valid:not(:placeholder-shown)) {
+	.form__group:has(:valid:not(:placeholder-shown)):not([data-error="true"]) {
 		--fg : Var(--clr-valid);
 	}
 
-	&__group:has(:where(input, textarea):not(:placeholder-shown)) label {
+	.form__group:has(:where(input, textarea):not(:placeholder-shown)) label {
 		--lh      : var(--lh-1);
-		--opacity : 0.8;
+		--opacity : 1;
 
 		transform : translateY(-120%);
 	}
@@ -39,7 +39,7 @@
 		--opacity  : 0;
 
 		position   : absolute;
-		transition : transform 50ms ease-in-out, opacity 50ms ease-in-out;
+		transition : transform 50ms ease-in-out, --opacity 50ms ease-in-out;
 		transform  : translateY(0);
 	}
 

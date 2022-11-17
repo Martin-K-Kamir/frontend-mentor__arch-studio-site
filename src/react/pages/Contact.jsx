@@ -10,7 +10,7 @@ export default function Contact() {
 	return (<main>
 		<PageLabel page="Contact"/>
 		<div className="[ stack ] [ space-fluid-9 ]">
-			<Hero image={{dir: 'contact', widths: [375, 573, 635]}}
+			<Hero image={{dir: 'contact', widths: [375, 573, 635], width: 721, height: 720}}
 			      title="Tell us about your project"
 			      subtitle="Contact"
 			      desc="We’d love to hear more about your project. Please, leave a message below or give us a call. We have two offices, one in Texas and one in Tennessee. If you find yourself nearby, come say hello!"
@@ -26,7 +26,7 @@ export default function Contact() {
 			</section>
 
 			<section>
-				<div className="wrapped">
+				<div id="map" className="wrapped">
 					<Map/>
 				</div>
 			</section>
