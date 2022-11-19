@@ -7,7 +7,7 @@ export default function Cards(props) {
 		switch (props.type) {
 			case "project":
 				return (
-					<CardProject image={data.image} title={data.title} date={data.date} href={data.href}/>
+					<CardProject image={data.image} title={data.title} date={data.date} to={data.to}/>
 				)
 			case "member":
 				return (

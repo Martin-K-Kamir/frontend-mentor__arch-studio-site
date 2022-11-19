@@ -13,7 +13,6 @@ export default function Slider(props) {
 		onSwipedLeft: () => (handleSlider('next'), setShowSwipeTip(false)),
 		onSwipedRight: () => handleSlider('prev'),
 		swipeDuration: 500,
-		preventScrollOnSwipe: true,
 		trackMouse: true
 	});
 
@@ -82,7 +81,7 @@ export default function Slider(props) {
 							<Title className="[ title-3 ] [ fg-neutral-1 measure-1 ]">{curSlide.title}</Title>
 						}
 						{curSlide.desc && <p className="[ desc-1 ] [ fg-neutral-1 ]">{curSlide.desc}</p>}
-						{curSlide.button ? <Button href={curSlide.button.href} tabIndex={slide === index + 1 ? 0 : -1} content={curSlide.button.content} utils="space-4"
+						{curSlide.button ? <Button to={curSlide.button.to} tabIndex={slide === index + 1 ? 0 : -1} content={curSlide.button.content} utils="space-4"
 						                           icon={curSlide.button.icon}/> : null}
 					</div>
 				</div>))}

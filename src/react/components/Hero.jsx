@@ -19,7 +19,7 @@ export default function Hero(props) {
 							{props.subtitle && <p className="[ title-4 ] [ fg-neutral-2 title-floated hide//below-md ]">{props.subtitle}</p>}
 							<h1 className="[ title-2 ] [ title-border//above-md measure-1 ]">{props.title}</h1>
 							{props.desc && <p className="[ desc-1 ] [ fg-neutral-5 measure-5 ]">{props.desc}</p>}
-							{props.button ? <Button href={props.button.href} content={props.button.content} icon={props.button.icon}/> : null}
+							{props.button ? <Button to={props.button.to} content={props.button.content} icon={props.button.icon}/> : null}
 						</div>
 					</section>)
 			}

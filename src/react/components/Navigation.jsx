@@ -1,17 +1,11 @@
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 
 
 export default function Navigation(props) {
-	const [activeLink, setActiveLink] = useState('')
 	const links = props.links ? props.links : ['portfolio', 'about-us', 'contact'];
 
-	useEffect(() => {
-		setActiveLink(props.activeLink)
-	}, [props.activeLink])
-
-	function handleLinkClick(link) {
-		props.handleLinkClick(link)
+	function handleLinkClick() {
 		props.handleToggleNav()
 	}
 
@@ -22,9 +16,13 @@ export default function Navigation(props) {
 	}
 
 	return (
-		<nav className="[ navigation ] [ space-fluid-4 ]" id={`navigation-${props.label}`} onClick={e => handleNavClick(e)} data-open={props.open}>
+		<nav className="[ navigation ] [ space-fluid-4 ]" id={`navigation-${props.label}`} onClick={e => handleNavClick(e)} data-open={props.navOpen}>
 			<ul className="direction-column//below-md" aria-label={`navigation ${props.label}`} role="list">
-				{links.map((link, index) => <li key={`key${index}`} data-type={activeLink === link} onClick={() => handleLinkClick(link)}><Link to={`/${link}`}>{link.replace('-', ' ')}</Link></li>)}
+				{links.map((link, index) => <li key={`key${index}`}>
+					<NavLink exact="true" to={`/${link}`} onClick={handleLinkClick}>
+						{link.replace('-', ' ')}
+					</NavLink>
+				</li>)}
 			</ul>
 		</nav>
 	);

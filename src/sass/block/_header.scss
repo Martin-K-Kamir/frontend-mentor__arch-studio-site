@@ -2,7 +2,7 @@
 
 .header {
 	position : relative;
-	z-index  : math.layer('header');
+	z-index  : math.layer('header') + 3;
 
 	&__container {
 		position      : relative;
@@ -26,6 +26,9 @@
 			position        : absolute;
 			inset           : auto 0 0 var(--space-body-1);
 			z-index         : -1;
+			transition-property: opacity, transform, visibility;
+			transition-duration: 200ms;
+			transition-timing-function: ease-in-out;
 		}
 	}
 
@@ -39,7 +42,7 @@
 		}
 	}
 
-	.navigation::after {
+	.navigation[data-open="true"]::after {
 		@media (width < $width-md) {
 			content          : "";
 			position         : fixed;
@@ -51,23 +54,19 @@
 		}
 	}
 
-	.navigation:where([data-open="false"], [data-open="true"]) {
-		@media (width < $width-md) {
-			animation-duration        : 200ms;
-			animation-timing-function : ease-in-out;
-			animation-fill-mode       : forwards;
-		}
-	}
-
 	.navigation[data-open="false"] {
 		@media (width < $width-md) {
-			animation-name : navigation-close;
+			visibility : hidden;
+			opacity    : 0;
+			transform  : translateY(0);
 		}
 	}
 
 	.navigation[data-open="true"] {
 		@media (width < $width-md) {
-			animation-name : navigation-open;
+			visibility : visible;
+			opacity    : 1;
+			transform  : translateY(99%);
 		}
 	}
 
@@ -76,33 +75,6 @@
 
 		@media (width >= $width-md) {
 			display : none;
-		}
-	}
-
-	@keyframes navigation-close {
-		from {
-			visibility : visible;
-			opacity    : 1;
-			transform  : translateY(99%);
-		}
-		to {
-			visibility : hidden;
-			opacity    : 0;
-			transform  : translateY(0);
-		}
-	}
-
-	@keyframes navigation-open {
-		from {
-			visibility : hidden;
-			opacity    : 0;
-			transform  : translateY(0);
-		}
-
-		to {
-			visibility : visible;
-			opacity    : 1;
-			transform  : translateY(99%);
 		}
 	}
 }

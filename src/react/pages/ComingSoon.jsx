@@ -4,7 +4,7 @@ import React from "react";
 export default function ComingSoon() {
 	return (
 		<main className="singlepage">
-			<Cover title="Coming soon" desc="This page is currently under construction" button={{href: "/", content: "Homepage"}}
+			<Cover title="Coming soon" desc="This page is currently under construction" button={{to: "/", content: "Homepage"}}
 			       image={{dir: 'home', name: 'small-team', widths: [375, 573, 1110]}}/>
 			<section>
 			</section>

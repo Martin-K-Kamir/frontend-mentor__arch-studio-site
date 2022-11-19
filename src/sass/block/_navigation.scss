@@ -24,7 +24,7 @@
 		text-transform : uppercase;
 	}
 
-	li[data-type="true"]::after {
+	a[class="active"]::after {
 		--_active-border : var(--active-border);
 
 		content          : "";

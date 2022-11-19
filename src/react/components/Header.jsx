@@ -1,22 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Navigation from "./Navigation";
 import Logo from "./Logo";
 import {Link} from "react-router-dom";
 import useScrollbarSize from "react-scrollbar-size";
 
 export default function Header(props) {
-	const {height, width} = useScrollbarSize();
+	const {width} = useScrollbarSize();
 	const [navOpen, setNavOpen] = useState(false);
-	const [activeLink, setActiveLink] = useState('')
-	const [isScrolling, setIsScrolling] = useState(false);
-
-	useEffect(() => {
-		setActiveLink(props.activeLink)
-	}, [props.activeLink])
+	const [disableScroll, setDisableScroll] = useState(false);
 
 	useEffect(() => {
 		const html = document.querySelector("html");
-		if (html && isScrolling) {
+		if (html && disableScroll) {
 			html.style.position = navOpen ? "fixed" : "";
 			html.style.overflowY = navOpen ? "scroll" : "";
 			html.style.width = navOpen ? "100%" : "";
@@ -24,10 +19,9 @@ export default function Header(props) {
 	}, [navOpen]);
 
 	function handleToggleNav() {
-		if (window.document.body.clientWidth < 768 - width) {
-			setIsScrolling(true)
-			setNavOpen(!navOpen);
-		}
+		if (!(window.document.body.clientWidth < 768 - width)) return;
+		setDisableScroll(true)
+		setNavOpen(!navOpen);
 	}
 
 	return (<header className="header">
@@ -40,7 +34,7 @@ export default function Header(props) {
 					<span aria-hidden={true}></span>
 					<span aria-hidden={true}></span>
 				</button>
-				<Navigation label="primary" handleLinkClick={props.handleLinkClick} handleToggleNav={handleToggleNav} activeLink={activeLink} open={navOpen}/>
+				<Navigation label="primary" handleToggleNav={handleToggleNav} navOpen={navOpen}/>
 			</div>
 		</div>
 	</header>);

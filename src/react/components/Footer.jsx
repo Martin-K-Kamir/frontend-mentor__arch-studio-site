@@ -7,17 +7,13 @@ import {useEffect, useState} from "react";
 
 
 export default function Footer(props) {
-	const [activeLink, setActiveLink] = useState('')
 
-	useEffect(() => {
-		setActiveLink(props.activeLink)
-	})
 	return (
 		<footer className="footer">
 			<div className="[ footer__container ] [ bg-neutral-2 align-center direction-column//below-md ]">
 				<Link onClick={() => props.handleLinkClick('home')} to="/" aria-label="homepage"><Logo type="box"/></Link>
 				<div className="[ footer__lists ] [ direction-column align-center//below-md text-center//below-md ]">
-					<Navigation handleLinkClick={props.handleLinkClick} activeLink={activeLink} label="footer"/>
+					<Navigation label="footer"/>
 					<p className="fs-1 fg-neutral-4">Challenge by <a href="https://www.frontendmentor.io/home">Frontend&nbsp;Mentor</a>. Coded&nbsp;by&nbsp;Martin&nbsp;Kamír.</p>
 					<ul className="[ cluster ] [ space-3 ]" role="list">
 						<li>
@@ -37,7 +33,7 @@ export default function Footer(props) {
 						</li>
 					</ul>
 				</div>
-				<Button href="#" content="See Our Portfolio"/>
+				<Button to="/portfolio" content="See Our Portfolio"/>
 			</div>
 		</footer>
 	);
