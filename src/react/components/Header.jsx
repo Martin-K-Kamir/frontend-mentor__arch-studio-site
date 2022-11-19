@@ -1,10 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Navigation from "./Navigation";
 import Logo from "./Logo";
 import {Link} from "react-router-dom";
 import useScrollbarSize from "react-scrollbar-size";
 
-export default function Header(props) {
+export default function Header() {
 	const {width} = useScrollbarSize();
 	const [navOpen, setNavOpen] = useState(false);
 	const [disableScroll, setDisableScroll] = useState(false);
@@ -27,7 +27,7 @@ export default function Header(props) {
 	return (<header className="header">
 		<div className="[ header__container ] [ bg-neutral-1 ]">
 			<div className="[ header__content ] [ wrapper ] [ align-center ]">
-				<Link onClick={() => (props.handleLinkClick('home'), setNavOpen(false))} to="/" aria-label="homepage"><Logo/></Link>
+				<Link onClick={handleToggleNav} to="/" aria-label="homepage"><Logo/></Link>
 				<button className="btn-hamburger" aria-controls="navigation-primary" aria-expanded={navOpen} aria-label="menu" onClick={handleToggleNav}>
 					<span aria-hidden={true}></span>
 					<span aria-hidden={true}></span>

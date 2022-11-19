@@ -2,7 +2,7 @@
 
 .header {
 	position : relative;
-	z-index  : math.layer('header') + 3;
+	z-index  : math.layer('header');
 
 	&__container {
 		position      : relative;
