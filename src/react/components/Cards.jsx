@@ -2,7 +2,6 @@ import CardProject from "./CardProject";
 import CardMember from "./CardMember";
 import CardOffice from "./CardOffice";
 
-
 export default function Cards(props) {
 	function renderCard(data) {
 		switch (props.type) {

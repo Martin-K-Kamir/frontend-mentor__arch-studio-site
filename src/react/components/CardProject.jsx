@@ -2,7 +2,6 @@ import Image from "./Image";
 
 export default function CardProject(props) {
 
-	console.log(props)
 	return (
 		<a href={props.href} className="[ card-project ] [ stacked ] [ darken-image ]">
 			<Image priority={props.image.priority} lazy={props.image.lazy} dir={props.image.dir} name={props.image.name} widths={props.image.widths} sizes={props.image.sizes} width={props.image.width} height={props.image.height}/>

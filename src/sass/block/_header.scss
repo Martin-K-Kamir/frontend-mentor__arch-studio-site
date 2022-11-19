@@ -21,15 +21,33 @@
 
 	.navigation {
 		@media (width < $width-md) {
-			--active-border  : none;
-			--fs             : var(--fs-3);
-			--fg             : hsl(var(--clr-neutral-7));
+			--active-border : none;
 
-			position         : absolute;
-			inset            : auto 0 0 var(--space-body-1);
+			position        : absolute;
+			inset           : auto 0 0 var(--space-body-1);
+			z-index         : -1;
+		}
+	}
+
+	.navigation ul {
+		@media (width < $width-md) {
+			--fs    : var(--fs-3);
+			--fg    : var(--clr-neutral-7);
+			--bg    : var(--clr-neutral-2);
+
+			padding : var(--space-5);
+		}
+	}
+
+	.navigation::after {
+		@media (width < $width-md) {
+			content          : "";
+			position         : fixed;
 			z-index          : -1;
-			padding          : var(--space-5);
-			background-color : hsl(var(--clr-neutral-2));
+			inset            : 0 0 0 calc(-1 * var(--space-body-1));
+			block-size       : 100vh;
+			background-color : hsl(var(--clr-neutral-6));
+			opacity          : 0.6;
 		}
 	}
 

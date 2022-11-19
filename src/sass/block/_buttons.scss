@@ -8,6 +8,7 @@
 	--_bg            : var(--bg, var(--clr-neutral-6, (0, 0%, 0%)));
 	--_fs            : var(--fs, var(--fs-2, 1.6rem));
 	--_fw            : var(--fw, var(--fw-4, 500));
+	--outline-color : hsl(var(--_bg));
 
 	cursor           : pointer;
 	display          : inline-flex;

@@ -8,16 +8,16 @@
 	}
 
 	&__container {
-		position                   : relative;
-		block-size                 : 100%;
-		display                    : grid;
-		grid-auto-columns          : 100%;
-		grid-auto-flow             : column;
-		scroll-snap-type           : inline mandatory;
-		scroll-behavior            : smooth;
-		overflow                   : auto hidden;
-		overscroll-behavior-inline : contain;
-		scrollbar-width            : none;
+		position                    : relative;
+		block-size                  : 100%;
+		display                     : grid;
+		grid-auto-columns           : 100%;
+		grid-auto-flow              : column;
+		scroll-snap-type            : inline mandatory;
+		scroll-behavior             : smooth;
+		overflow                    : auto hidden;
+		šoverscroll-behavior-inline : contain;
+		scrollbar-width             : none;
 
 		&::-webkit-scrollbar {
 			display : none;
@@ -31,10 +31,28 @@
 	}
 
 	&__slide {
+		touch-action      : none;
 		scroll-snap-align : start;
 	}
 
-	.desc-1 {
+	&__swipe-tip {
+		position         : absolute;
+		inset            : var(--space-body-1) 0 auto auto;
+		pointer-events   : none;
+
+		font-size        : var(--fs-1);
+		font-weight      : var(--fw-4);
+
+		padding          : 0.25em 0.5em;
+		background-color : hsl(var(--clr-neutral-2, #ffffff));
+		opacity          : 0.65;
+	}
+
+	&__swipe-tip[data-visible="false"] {
+		display : none;
+	}
+
+	[class*="desc-"] {
 		--measure : 75vw;
 
 		@media (width >= $width-md) {
@@ -49,6 +67,7 @@
 
 		position : absolute;
 		inset    : auto auto 0 0;
+		z-index  : 1;
 
 		@media (width >= $width-lg) {
 			--offset-tab-by : 1;

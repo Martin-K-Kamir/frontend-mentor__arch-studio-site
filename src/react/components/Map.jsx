@@ -3,7 +3,6 @@ import 'leaflet/dist/leaflet.css'
 import L from "leaflet";
 import data from "../../data";
 import icon from '../../assets/icons/marker.svg';
-import React, {useEffect, useRef} from "react";
 
 const markerIcon = new L.Icon({
 	iconUrl: icon,
@@ -37,7 +36,11 @@ const Map = () => {
 			           url="http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
 			/>
 			{data.offices.map((office, index) => (
-				<Marker eventHandlers={{click: (e) => {handleClick(e)},}} icon={markerIcon} key={`office${index}`} uniqueID={office.id} position={[office.lat, office.lng]}></Marker>
+				<Marker eventHandlers={{
+					click: (e) => {
+						handleClick(e)
+					},
+				}} icon={markerIcon} key={`office${index}`} uniqueID={office.id} position={[office.lat, office.lng]}></Marker>
 			))}
 		</MapContainer>
 	)

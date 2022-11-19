@@ -19,7 +19,7 @@
 		inset            : 0;
 		background-color : hsl(var(--clr-neutral-1));
 		opacity          : 0;
-		z-index          : 1;
+		z-index          : 3;
 		transition       : opacity 300ms ease-in-out;
 	}
 
@@ -36,7 +36,7 @@
 		line-height    : var(--line-height-title);
 		letter-spacing : calc(-0.1 * var(--line-height-title));
 		font-weight    : var(--fw-4);
-		color          : hsl(var(--clr-neutral-1), 0.5);
+		color          : hsl(var(--clr-neutral-1), 0.45);
 	}
 
 	@media (hover : hover) {

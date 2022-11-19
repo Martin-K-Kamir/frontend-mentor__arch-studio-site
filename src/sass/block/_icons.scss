@@ -1,11 +1,16 @@
 
 .icon {
 	--_icon-size : var(--icon-size, 1rem);
-	--_icon-fg : var(--icon-fg, var(--_fg, inherit));
+	--_icon-fg   : var(--icon-fg, var(--_fg, inherit));
 
 	color        : hsl(var(--_icon-fg));
 	fill         : CurrentColor;
 	inline-size  : var(--_icon-size);
 	block-size   : var(--_icon-size);
 	flex-shrink  : 0;
+}
+
+li:has(a:focus-visible):has(.icon) {
+	outline        : var(--outline-size) var(--outline-style) var(--outline-color);
+	outline-offset : calc(var(--outline-size) * 1 + 1px);
 }

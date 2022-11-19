@@ -1,7 +1,9 @@
 
 .navigation {
 	ul {
-		gap : var(--space, var(--space-1, #{$space}));
+		--_bg            : var(--bg);
+		gap              : var(--space, var(--space-1, #{$space}));
+		background-color : hsl(var(--_bg));
 	}
 
 	li {

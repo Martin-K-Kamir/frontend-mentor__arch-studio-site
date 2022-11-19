@@ -18,7 +18,7 @@
 		font-weight      : var(--_fw);
 		color            : hsl(var(--_fg));
 		background-color : hsl(var(--_bg));
-		border           : none
+		border           : none;
 	}
 
 	button:where(:hover, :focus-visible) {
@@ -28,5 +28,11 @@
 	button[aria-selected="true"] {
 		--_fg : var(--bg, var(--clr-neutral-1, #ffffff));
 		--_bg : var(--fg, var(--clr-neutral-6, #000000));
+		z-index : 1;
+	}
+
+	button[aria-selected="true"]:focus-visible {
+		--_bg : var(--fg, var(--clr-neutral-5, #222222));
+		--outline-color: hsl(var(--_bg));
 	}
 }
