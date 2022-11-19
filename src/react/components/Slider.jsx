@@ -12,6 +12,7 @@ export default function Slider(props) {
 	const handlers = useSwipeable({
 		onSwipedLeft: () => (handleSlider('next'), setShowSwipeTip(false)),
 		onSwipedRight: () => handleSlider('prev'),
+		preventScrollOnSwipe: true,
 		swipeDuration: 500,
 		trackMouse: true
 	});
