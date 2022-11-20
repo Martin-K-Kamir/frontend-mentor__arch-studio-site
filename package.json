@@ -41,10 +41,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "postcss": "^8.4.19",
-    "postcss-variable-compress": "^2.0.1",
-    "react-app-rewire-postcss": "^3.0.2"
   }
 }
