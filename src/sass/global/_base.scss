@@ -1,7 +1,7 @@
 
 html {
-	scroll-behavior: smooth;
-	scroll-padding-block-start: var(--space-body-1);
+	scroll-behavior            : smooth;
+	scroll-padding-block-start : var(--space-body-1);
 }
 
 body {
@@ -23,7 +23,7 @@ body {
 	}
 }
 
-:where(ul, ol)[data-counter="true"] {
+:where(ul, ol)[data-counter='true'] {
 	--counter-visibility : block;
 	counter-reset        : list-counter;
 
