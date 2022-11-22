@@ -1,7 +1,7 @@
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 import ScrollToTop from "./react/utilities/ScrollToTop";
-import Header from "./react/components/Header";
+import SiteHead from "./react/components/SiteHead";
 import Footer from "./react/components/Footer";
 import Home from "./react/pages/Home";
 import About from "./react/pages/About";
@@ -16,7 +16,7 @@ export default function App() {
 	return (<div className="App">
 		<Router>
 			<ScrollToTop>
-				<Header/>
+				<SiteHead/>
 				<Routes>
 					<Route path="/" element={<Home/>}/>
 					<Route path="/portfolio" element={<Portfolio/>}/>

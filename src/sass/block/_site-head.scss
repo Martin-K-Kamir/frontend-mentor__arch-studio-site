@@ -1,8 +1,8 @@
 @use '../abstracts/modules/math';
 
-.header {
+.site-head {
 	position : relative;
-	z-index  : math.layer('header');
+	z-index  : math.layer('site-head');
 
 	&__container {
 		position      : relative;

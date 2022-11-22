@@ -245,7 +245,7 @@ $clamped-max-width : 90em !default;
 /// @param $index {number} - The base index from which to calculate the layer index.
 /// @return {number} - Index number of layer.
  */
-$list-of-layers    : ('page-label', 'header', 'base') !default;
+$list-of-layers    : ('page-label', 'site-head', 'base') !default;
 $start-index       : 100 !default;
 @function layer($layer-name, $index: $start-index) {
 	@if index($list-of-layers, $layer-name) {
