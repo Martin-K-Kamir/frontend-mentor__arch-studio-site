@@ -33,19 +33,11 @@ body {
 }
 
 .App {
-	min-block-size : 100vh;
+	display        : flex;
+	flex-direction : column;
 
-	&:has(.singlepage) {
-		display        : flex;
-		flex-direction : column;
-	}
-
-	&:has(.singlepage) footer {
-		margin-block-start : auto;
-
-		@media (width < $width-lg) {
-			inline-size : 100%;
-		}
+	main {
+		flex : 1;
 	}
 }
 

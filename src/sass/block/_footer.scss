@@ -8,6 +8,10 @@
 	margin-inline      : auto;
 	margin-block-start : calc(var(--space-fluid-9) + (var(--logo-size) / 2));
 
+	@media (width < $width-lg) {
+		inline-size : 100%;
+	}
+
 	@media (width >= $width-md) {
 		margin-block-start : var(--space-fluid-9);
 	}

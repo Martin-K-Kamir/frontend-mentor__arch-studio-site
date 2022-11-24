@@ -21,6 +21,10 @@ html:focus-within {
 	scroll-behavior : smooth;
 }
 
+:where(html, body, #root, .App) {
+	min-block-size : 100vh;
+}
+
 html,
 body {
 	overflow-x : hidden;
@@ -29,7 +33,6 @@ body {
 /* Set core body defaults */
 body {
 	text-rendering : optimizeSpeed;
-	min-block-size : 100vh;
 }
 
 
