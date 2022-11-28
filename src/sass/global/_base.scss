@@ -13,6 +13,10 @@ body {
 	background-color : hsl(var(--clr-neutral-1));
 }
 
+section {
+	content-visibility: auto;
+}
+
 :where(a, button) {
 	text-decoration : none;
 	color           : inherit;
