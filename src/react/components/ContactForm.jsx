@@ -108,6 +108,9 @@ export default function ContactForm() {
 					<input type="text"
 					       id="name"
 					       name="name"
+						   autocomplete="off"
+						   autocapitalize="none"
+						   autocorrect="off"
 					       required={true}
 					       pattern={nameObject.pattern}
 					       minLength={nameObject.minLimit}
@@ -124,6 +127,9 @@ export default function ContactForm() {
 					       id="email"
 					       name="email"
 					       required={true}
+						   autocomplete="off"
+						   autocapitalize="none"
+						   autocorrect="off"
 					       pattern={emailObject.pattern}
 					       minLength={emailObject.minLimit}
 					       maxLength={emailObject.maxLimit}

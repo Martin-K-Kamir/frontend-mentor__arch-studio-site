@@ -16,7 +16,7 @@
 		scroll-snap-type            : inline mandatory;
 		scroll-behavior             : smooth;
 		overflow                    : auto hidden;
-		šoverscroll-behavior-inline : contain;
+		overscroll-behavior-inline : contain;
 		scrollbar-width             : none;
 
 		&::-webkit-scrollbar {

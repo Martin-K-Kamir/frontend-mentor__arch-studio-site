@@ -1,7 +1,7 @@
 
 html {
-	scroll-behavior: smooth;
-	scroll-padding-block-start: var(--space-body-1);
+	scroll-behavior            : smooth;
+	scroll-padding-block-start : var(--space-body-1);
 }
 
 body {
@@ -27,7 +27,7 @@ section {
 	}
 }
 
-:where(ul, ol)[data-counter="true"] {
+:where(ul, ol)[data-counter='true'] {
 	--counter-visibility : block;
 	counter-reset        : list-counter;
 
@@ -37,19 +37,11 @@ section {
 }
 
 .App {
-	min-block-size : 100vh;
+	display        : flex;
+	flex-direction : column;
 
-	&:has(.singlepage) {
-		display        : flex;
-		flex-direction : column;
-	}
-
-	&:has(.singlepage) footer {
-		margin-block-start : auto;
-
-		@media (width < $width-lg) {
-			inline-size : 100%;
-		}
+	main {
+		flex : 1;
 	}
 }
 
