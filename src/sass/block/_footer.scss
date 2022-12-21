@@ -42,12 +42,12 @@
 	}
 
 	&__lists {
-		--space  : var(--space-fluid-2, #{$space});
+		--space  : var(--space-fluid-5, #{$space});
 		--_space : var(--space);
 		gap      : var(--_space);
 
 		@media (width >= $width-md) {
-			--_space : var(--space-1);
+			--_space : var(--space-2);
 		}
 	}
 
